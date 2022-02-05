@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SSUK">
         <activity
+            android:name=".LiarGame"
+            android:exported="true" />
+        <activity
+            android:name=".CarGame"
+            android:exported="true" />
+        <activity
+            android:name=".PictureGame"
+            android:exported="true" />
+        <activity
+            android:name=".FourWordsGame"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
