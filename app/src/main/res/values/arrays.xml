@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="category">
+        <item>무작위</item>
+        <item>사자성어</item>
+        <item>인물</item>
+        <item>음식</item>
+    </string-array>
+
+
+
+</resources>

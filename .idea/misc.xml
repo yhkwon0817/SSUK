@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudio/SSU/app/src/main/res/layout/activity_four_wards_game.xml" value="0.15670289855072464" />
+        <entry key="..\:/AndroidStudio/SSU/app/src/main/res/layout/activity_four_words_game_setting.xml" value="0.14447463768115942" />
         <entry key="..\:/Users/User/AndroidStudioProjects/SSUK/app/src/main/res/layout/activity_car_game.xml" value="0.2753623188405797" />
         <entry key="..\:/Users/User/AndroidStudioProjects/SSUK/app/src/main/res/layout/activity_four_words_game.xml" value="0.18704710144927536" />
         <entry key="..\:/Users/User/AndroidStudioProjects/SSUK/app/src/main/res/layout/activity_liar_game.xml" value="0.18704710144927536" />
