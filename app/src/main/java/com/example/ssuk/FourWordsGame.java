@@ -52,6 +52,9 @@ public class FourWordsGame extends AppCompatActivity {
         word4 = findViewById(R.id.word4);
         screen = findViewById(R.id.screen);
 
+        solution.setOnClickListener(onClickListener);
+        screen.setOnTouchListener(onTouchListener);
+
         //값 받아오기
         Intent setting = getIntent();
 
@@ -59,9 +62,17 @@ public class FourWordsGame extends AppCompatActivity {
         time = setting.getIntExtra("setting_time", 0);
         String category = setting.getStringExtra("setting_category");
 
+        //문제 넣고 섞기
+        putProblem();
+
+        //Log.e("###", problem.get(index_));
+
+        startTimerTask();
+    }
+
+    private void putProblem() {
         problem.add("사필귀정");
         problem.add("정문일침");
-        problem.add("어렵네요");
         problem.add("죽마고우");
         problem.add("수어지교");
         problem.add("각골난망");
@@ -75,70 +86,79 @@ public class FourWordsGame extends AppCompatActivity {
         problem.add("과유불급");
 
         Collections.shuffle(problem);
-
-        solution.setOnClickListener(onClickListener);
-        screen.setOnTouchListener(onTouchListener);
-        //Log.e("###", problem.get(index_));
-
-        timerTask();
-        countDownTime();
-
-        timer.schedule(timerTask, 0, (time + 1) * 1000);
-
     }
 
-    public void timerTask() {
-        timer = new Timer();
-        timerTask = new TimerTask() {
-            @Override
-            public void run() {
-                change_pb();
-                if (index_ == repeat) {
-                    timer.cancel();
-                }
-            }
-        };
+    public void clickHandler(View view)
+    {
+        switch(view.getId())
+        {
+            case R.id.screen:
 
+                break;
+/*            case R.id.btn :
+                stopTimerTask();
+                break;*/
+        }
     }
 
-    public void countDownTime() {
-        countDownTimer = new CountDownTimer(time * 1000, 1000) {
+    public void startTimerTask() {
 
-            @Override
-            public void onTick(long millisUntilFinished) {
-                int num = (int) (millisUntilFinished / 1000);
-                tv.setText(Integer.toString(num + 1));
-            }
+        stopTimerTask();
+        change_pb();
 
-            @Override
-            public void onFinish() {
-                tv.setText("끝");
+        if(index_ == repeat){
+            word1.setText("게");
+            word2.setText("임");
+            word3.setText("종");
+            word4.setText("료!");
+            tv.setText("");
+            solution.setVisibility(View.GONE);
+            return;
+        }
+        else{
+            timer = new Timer();
+            timerTask = new TimerTask() {
 
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        if(isFinish) {
+                int count = time;
 
-
+                @Override
+                public void run() {
+                    tv.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            if(count == -1) tv.setText("끝");
+                            else if (count < -1) {
+                                startTimerTask();
+                                return;
+                            }
+                            else tv.setText(Integer.toString(count));
                         }
-                        change_pb();
-                    }
-                }, 1000);
-            }
-        };
+                    });
+                    count--;
+                }
+            };
+            timer.schedule(timerTask,0 ,1000);
+        }
+    }
+
+    private void stopTimerTask()
+    {
+        if(timerTask != null)
+        {
+            timerTask.cancel();
+            timerTask = null;
+        }
     }
 
     View.OnTouchListener onTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
-
-            countDownTimer.cancel();
-            timer.cancel();
-            Log.e("###", index_ + "인덱스 터치 호출");
-
-            change_pb();
-
-            return false;
+            if(index_ < repeat){
+                startTimerTask();
+                Log.e("###", index_ + "인덱스 터치 호출");
+                return false;
+            }
+            else return false;
         }
     };
 
@@ -147,26 +167,13 @@ public class FourWordsGame extends AppCompatActivity {
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.btn:
-                    Toast.makeText(getApplicationContext(), problem.get(index_ - 1), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), problem.get(index_ - 1), Toast.LENGTH_SHORT).show();
                     break;
             }
         }
     };
 
     public void change_pb() {
-
-        countDownTimer.start();
-
-        Log.e("###", Integer.toString(repeat));
-        Log.e("###", index_ + "번째 문제바꿈 호출");
-
-        if (index_ == repeat) {
-            word1.setText("게");
-            word2.setText("임");
-            word3.setText("종");
-            word4.setText("료!");
-            isFinish = true;
-        }
 
         char[] pb = (problem.get(index_)).toCharArray();
         Log.e("###", Integer.toString(index_));
