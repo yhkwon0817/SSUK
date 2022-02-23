@@ -6,7 +6,9 @@ import android.opengl.Visibility;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -19,6 +21,8 @@ public class CarGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_game);
+
+        Button button = (Button) findViewById(R.id.Next_button);
 
         ImageView jump_gif = (ImageView) findViewById(R.id.jump_gif);
         Glide.with(this).load(R.drawable.jump_remove).into(jump_gif);
@@ -41,7 +45,7 @@ public class CarGame extends AppCompatActivity {
         turn_left_gif.setVisibility((View.INVISIBLE));
         turn_right_gif.setVisibility((View.VISIBLE));
 
-        jump_gif.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Random random = new Random();
