@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                     intent = new Intent(getApplicationContext(), CarGameSetting.class);
 
                 if(i == 3)
-                    intent = new Intent(getApplicationContext(), LiarGame.class);
+                    intent = new Intent(getApplicationContext(), LiarGameSetting.class);
 
                 startActivity(intent);
             }

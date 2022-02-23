@@ -10,12 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
-            android:name=".CarGameSetting"
-            android:exported="false" />
-        <activity
             android:name=".FourWordsGame"
-            android:exported="false"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"
+            android:exported="false" />
         <activity
             android:name=".LiarGame"
             android:exported="true" />
