@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/jump_remove"
-        />
+         />
+
     <ImageView
         android:id="@+id/start_gif"
         android:layout_width="match_parent"
@@ -31,10 +32,13 @@
         android:layout_height="match_parent"
         android:src="@drawable/turn_left_remove"
         />
+
     <ImageView
         android:id="@+id/turn_right_gif"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/turn_right_remove"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="-76dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
