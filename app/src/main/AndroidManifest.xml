@@ -20,6 +20,9 @@
             android:name=".CarGame"
             android:exported="true" />
         <activity
+            android:name=".CarGameSetting"
+            android:exported="true" />
+        <activity
             android:name=".PictureGame"
             android:exported="true" />
         <activity
