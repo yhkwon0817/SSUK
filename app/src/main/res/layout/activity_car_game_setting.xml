@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".CarGameSetting">
+    tools:context=".CarGameSetting"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView"
@@ -16,19 +17,18 @@
         android:text="붕붕붕 게임"
         android:textColor="#FFFFFF"
         android:textSize="39sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"/>
 
     <Button
         android:id="@+id/CarGameStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
         android:text="게임시작"
         android:fontFamily="@font/kotra_bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="286dp" />
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+         />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
