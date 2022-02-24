@@ -26,6 +26,9 @@
             android:name=".PictureGame"
             android:exported="true" />
         <activity
+            android:name=".PictureGameSetting"
+            android:exported="true" />
+        <activity
             android:name=".FourWordsGameSetting"
             android:exported="true" />
         <activity
