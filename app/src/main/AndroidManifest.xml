@@ -17,6 +17,9 @@
             android:name=".LiarGame"
             android:exported="true" />
         <activity
+            android:name=".LiarGameSetting"
+            android:exported="true" />
+        <activity
             android:name=".CarGame"
             android:exported="true" />
         <activity
