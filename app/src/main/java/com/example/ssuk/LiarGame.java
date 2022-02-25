@@ -24,9 +24,13 @@ public class LiarGame extends AppCompatActivity {
     public int randN_liar;
     public int i=0;
 
-    public String[][] array={{""}, {"사자", "호랑이", "곰", "퓨마", "낙타", "기린", "다람쥐", "원숭이", "아르마딜로", "돌고래", "박쥐", "캥거루"},
-            {"어바웃타임", "it", "밀정", "탐정", "노트북", "인턴", "좋은놈 나쁜놈 이상한놈", "미녀와 야수", "어벤져스", "2012", "트랜스포머", "킹스맨"},
-            {"김연아", "아이유", "레오나르도 다빈치", "장영실", "방탄소년단", "유재석", "강동원", "마이클 잭슨", "저스틴 비버", "페이커", "손흥민"},
+    public String[][] array={{""},
+            {"사자", "호랑이", "곰", "퓨마", "낙타", "기린", "다람쥐", "원숭이", "아르마딜로", "돌고래",
+                    "박쥐", "캥거루", "삵", "하이에나", "말", "닭"},
+            {"어바웃타임", "it", "밀정", "탐정", "노트북", "인턴", "좋은놈 나쁜놈 이상한놈", "미녀와 야수", "어벤져스", "2012",
+                    "트랜스포머", "킹스맨"},
+            {"김연아", "아이유", "레오나르도 다빈치", "장영실", "방탄소년단", "유재석", "강동원", "마이클 잭슨", "저스틴 비버", "페이커",
+                    "손흥민"},
             {"냉장고", "전자렌지", "전기모기채", "전기장판", "리모컨", "TV"}
 
     };
@@ -38,6 +42,7 @@ public class LiarGame extends AppCompatActivity {
 
     TextView min, sec;
     LinearLayout layout_timer;
+    Button btn_next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +55,7 @@ public class LiarGame extends AppCompatActivity {
         second=secondIntent.getIntExtra("시간제한_초", 0);
         category_number=secondIntent.getIntExtra("카테고리 넘버", 0);
 
-        randN_topic=(int)(Math.random()*12);//*topic 의 수
+        randN_topic=(int)(Math.random()*16);//*topic 의 수
         randN_liar=(int)(Math.random()*people);
 
         TextView text_topic=(TextView) findViewById(R.id.text_topic);
@@ -58,7 +63,7 @@ public class LiarGame extends AppCompatActivity {
         answer=array[category_number][randN_topic];
 
         TextView text_isLiar = (TextView) findViewById(R.id.text_isLiar);
-        Button btn_next=(Button) findViewById(R.id.btn_next);
+        btn_next = findViewById(R.id.btn_next);
         min = findViewById(R.id.min);
         sec = findViewById(R.id.sec);
         layout_timer = findViewById(R.id.layout_timer);
@@ -68,7 +73,14 @@ public class LiarGame extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 i++;
-                if(i>people*2){
+                if(i>people*2+1){
+                    Intent intent = new Intent(LiarGame.this, LiarGameLast.class);
+                    intent.putExtra("정답 번호", randN_topic);
+                    intent.putExtra("라이어", randN_liar);
+                    intent.putExtra("카테고리 넘버", category_number);
+                    startActivity(intent);
+                }
+                else if(i==people*2+1){
                     text_isLiar.setVisibility(View.VISIBLE);
                     btn_next.setVisibility(View.GONE);
                     text_isLiar.setText("범인 색출 시작!\n누가 라이어인지\n맞춰 봅시다!");
@@ -130,7 +142,9 @@ public class LiarGame extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                min.setText("끝");
+                layout_timer.setVisibility(View.INVISIBLE);
+                btn_next.setVisibility(View.VISIBLE);
+                btn_next.setText("범인 색출하기");
                 timerTask.cancel();
                 timerTask=null;
             }
