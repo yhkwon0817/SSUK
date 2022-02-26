@@ -7,14 +7,18 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextClock;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class LiarGameLast extends AppCompatActivity {
     public int num_answer=0;
+    public int people=0;
     public int num_liar=0;
     public int category_number=0;
     public int answer_place;
@@ -34,8 +38,12 @@ public class LiarGameLast extends AppCompatActivity {
     Timer timer;
     TimerTask timerTask;
     CountDownTimer countDownTimer;
+
     Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11, btn12, btn13, btn14, btn15, btn16;
+    Button btn_push;
     TextView textClock, text_after_choose;
+    LinearLayout layout_answers, layout_choose_liar;
+    EditText edit_liar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +51,7 @@ public class LiarGameLast extends AppCompatActivity {
         setContentView(R.layout.activity_liar_game_last);
 
         Intent secondIntent = getIntent();
+        people=secondIntent.getIntExtra("사람 수", 0);
         num_answer=secondIntent.getIntExtra("정답 번호", 0);
         num_liar=secondIntent.getIntExtra("라이어", 0);
         category_number=secondIntent.getIntExtra("카테고리 넘버", 0);
@@ -65,126 +74,218 @@ public class LiarGameLast extends AppCompatActivity {
         btn16=findViewById(R.id.btn16);
         textClock=findViewById(R.id.text_clock);
         text_after_choose=findViewById(R.id.text_after_choose);
+        layout_answers=findViewById(R.id.layout_answers);
+        layout_choose_liar=findViewById(R.id.layout_choose_liar);
+        btn_push=findViewById(R.id.btn_push);
+        edit_liar=findViewById(R.id.edit_liar);
 
-        answer=array[category_number][num_answer];
-        answer_place=(int)(Math.random()*16);
-
-        int i=1;
-        int randN=(int)(Math.random()*16);
-        int chk=0;
-
-        while(i<=16){
-            if(check[randN]==0){
-                if(array[category_number][randN].equals(answer))chk++;
-                setButton(i, array[category_number][randN]);
-                check[randN] = 1;
-                i++;
-            }
-            randN=(int)(Math.random()*16);
-        }
-        if(chk==0)setButton(answer_place, answer);
-
-        timerTask();
-        countDownTime();
-
-        btn1.setOnClickListener(new View.OnClickListener() {
+        btn_push.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (btn1.getText().toString().equals(answer)) {
-                    countDownTimer.onFinish();
+                //null로 입력하면 꺼진다.
+                //숫자외의 입력값이 주어지면 게임이 초기화된다.
+                // 해결방법은?
+
+                int push=Integer.parseInt(edit_liar.getText().toString());
+                if((Integer)push>=1&&(Integer)push<=people) {
+                    layout_choose_liar.setVisibility(View.GONE);
+                    if (push == num_liar) {
+                        text_after_choose.setText("정답입니다!!\n라이어는 제시어를 맞추시길 바랍니다.");
+                        layout_answers.setVisibility(View.VISIBLE);
+                        answer=array[category_number][num_answer];
+                        answer_place=(int)(Math.random()*16);
+
+                        int i=1;
+                        int randN=(int)(Math.random()*16);
+                        int chk=0;
+
+                        while(i<=16){
+                            if(check[randN]==0){
+                                if(array[category_number][randN].equals(answer))chk++;
+                                setButton(i, array[category_number][randN]);
+                                check[randN] = 1;
+                                i++;
+                            }
+                            randN=(int)(Math.random()*16);
+                        }
+                        if(chk==0)setButton(answer_place, answer);
+
+                        timerTask();
+                        countDownTime();
+                        timer.schedule(timerTask, 0, (10+1)*1000);
+
+                        btn1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (btn1.getText().toString().equals(answer)) {
+                                    countDownTimer.onFinish();
+                                    text_after_choose.setText("정답입니다.");
+                                }
+                                else text_after_choose.setText("땡!\n정답은"+answer+"입니다.");
+                            }
+                        });
+                        btn2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (btn2.getText().toString().equals(answer)) {
+                                    countDownTimer.onFinish();
+                                    text_after_choose.setText("정답입니다.");
+                                }
+                                else text_after_choose.setText("땡!\n정답은"+answer+"입니다.");
+                            }
+                        });
+                        btn3.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (btn3.getText().toString().equals(answer)) {
+                                    countDownTimer.onFinish();
+                                    text_after_choose.setText("정답입니다.");
+                                }
+                                else text_after_choose.setText("땡!\n정답은"+answer+"입니다.");
+                            }
+                        });
+                        btn4.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (btn4.getText().toString().equals(answer)) {
+                                    countDownTimer.onFinish();
+                                    text_after_choose.setText("정답입니다.");
+                                }
+                                else text_after_choose.setText("땡!\n정답은"+answer+"입니다.");
+                            }
+                        });
+                        btn5.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (btn5.getText().toString().equals(answer)) {
+                                    countDownTimer.onFinish();
+                                    text_after_choose.setText("정답입니다.");
+                                }
+                                else text_after_choose.setText("땡!\n정답은"+answer+"입니다.");
+                            }
+                        });
+                        btn6.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (btn6.getText().toString().equals(answer)) {
+                                    countDownTimer.onFinish();
+                                    text_after_choose.setText("정답입니다.");
+                                }
+                                else text_after_choose.setText("땡!\n정답은"+answer+"입니다.");
+                            }
+                        });
+                        btn7.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (btn7.getText().toString().equals(answer)) {
+                                    countDownTimer.onFinish();
+                                    text_after_choose.setText("정답입니다.");
+                                }
+                                else text_after_choose.setText("땡!\n정답은"+answer+"입니다.");
+                            }
+                        });
+                        btn8.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (btn8.getText().toString().equals(answer)) {
+                                    countDownTimer.onFinish();
+                                    text_after_choose.setText("정답입니다.");
+                                }
+                                else text_after_choose.setText("땡!\n정답은"+answer+"입니다.");
+                            }
+                        });
+                        btn9.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (btn9.getText().toString().equals(answer)) {
+                                    countDownTimer.onFinish();
+                                    text_after_choose.setText("정답입니다.");
+                                }
+                                else text_after_choose.setText("땡!\n정답은"+answer+"입니다.");
+                            }
+                        });
+                        btn10.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (btn10.getText().toString().equals(answer)) {
+                                    countDownTimer.onFinish();
+                                    text_after_choose.setText("정답입니다.");
+                                }
+                                else text_after_choose.setText("땡!\n정답은"+answer+"입니다.");
+                            }
+                        });
+                        btn11.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (btn11.getText().toString().equals(answer)) {
+                                    countDownTimer.onFinish();
+                                    text_after_choose.setText("정답입니다.");
+                                }
+                                else text_after_choose.setText("땡!\n정답은"+answer+"입니다.");
+                            }
+                        });
+                        btn12.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (btn12.getText().toString().equals(answer)) {
+                                    countDownTimer.onFinish();
+                                    text_after_choose.setText("정답입니다.");
+                                }
+                                else text_after_choose.setText("땡!\n정답은"+answer+"입니다.");
+                            }
+                        });
+                        btn13.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (btn13.getText().toString().equals(answer)) {
+                                    countDownTimer.onFinish();
+                                    text_after_choose.setText("정답입니다.");
+                                }
+                                else text_after_choose.setText("땡!\n정답은"+answer+"입니다.");
+                            }
+                        });
+                        btn14.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (btn14.getText().toString().equals(answer)) {
+                                    countDownTimer.onFinish();
+                                    text_after_choose.setText("정답입니다.");
+                                }
+                                else text_after_choose.setText("땡!\n정답은"+answer+"입니다.");
+                            }
+                        });
+                        btn15.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (btn15.getText().toString().equals(answer)) {
+                                    countDownTimer.onFinish();
+                                    text_after_choose.setText("정답입니다.");
+                                }
+                                else text_after_choose.setText("땡!\n정답은"+answer+"입니다.");
+                            }
+                        });
+                        btn16.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (btn16.getText().toString().equals(answer)) {
+                                    countDownTimer.onFinish();
+                                    text_after_choose.setText("정답입니다.");
+                                }
+                                else text_after_choose.setText("땡!\n정답은"+answer+"입니다.");
+                            }
+                        });
+                    }
+                    else {
+                        text_after_choose.setText("틀렸습니다.\n라이어는 바로\n" + num_liar + "번 플레이어 입니다!");
+                    }
+
                 }
+                else Toast.makeText(getApplicationContext(),
+                        "알맞은 숫자를 기입하시길 바랍니다.", Toast.LENGTH_SHORT).show();
             }
         });
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
-        btn3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
-        btn4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        btn5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        btn6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        btn7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        btn8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        btn9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        btn10.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        btn11.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        btn12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        btn13.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        btn14.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        btn15.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        btn16.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
 
     }
 
@@ -224,11 +325,12 @@ public class LiarGameLast extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 int num = (int) (millisUntilFinished / 1000);
 
-                int s = (int)(num+1);
-                textClock.setText(Integer.toString(s));
                 if(num+1==0){
                     countDownTimer.onFinish();
                 }
+
+                int s = (int)(num+1);
+                textClock.setText(Integer.toString(s));
             }
 
             @Override

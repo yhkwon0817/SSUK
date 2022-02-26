@@ -75,8 +75,9 @@ public class LiarGame extends AppCompatActivity {
                 i++;
                 if(i>people*2+1){
                     Intent intent = new Intent(LiarGame.this, LiarGameLast.class);
+                    intent.putExtra("사람 수", people);
                     intent.putExtra("정답 번호", randN_topic);
-                    intent.putExtra("라이어", randN_liar);
+                    intent.putExtra("라이어", randN_liar+1);
                     intent.putExtra("카테고리 넘버", category_number);
                     startActivity(intent);
                 }
@@ -87,8 +88,10 @@ public class LiarGame extends AppCompatActivity {
                     layout_timer.setVisibility(View.VISIBLE);
                     timerTask();
                     countDownTime();
-
                     timer.schedule(timerTask, 0, (minute + 1) * 60000);
+
+                    btn_next.setVisibility(View.VISIBLE);
+                    btn_next.setText("범인 색출하기");
                 }
                 else if(i==people*2){
                     btn_next.setText("게임 시작");
@@ -143,8 +146,6 @@ public class LiarGame extends AppCompatActivity {
             @Override
             public void onFinish() {
                 layout_timer.setVisibility(View.INVISIBLE);
-                btn_next.setVisibility(View.VISIBLE);
-                btn_next.setText("범인 색출하기");
                 timerTask.cancel();
                 timerTask=null;
             }
