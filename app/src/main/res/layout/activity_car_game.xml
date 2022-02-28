@@ -41,11 +41,12 @@
         />
 
     <Button
+        android:id="@+id/Next_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Next_button"
         android:text="NEXT"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteY="648dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
