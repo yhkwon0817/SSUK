@@ -2,6 +2,7 @@ package com.example.ssuk;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.opengl.Visibility;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,7 @@ import java.util.Random;
 public class CarGame extends AppCompatActivity {
 
     ImageView jump_gif, start_gif, stop_gif, turn_left_gif, turn_right_gif;
+    MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +67,8 @@ public class CarGame extends AppCompatActivity {
             stop_gif.setVisibility((View.GONE));
             turn_left_gif.setVisibility((View.GONE));
             turn_right_gif.setVisibility((View.GONE));
+            mediaPlayer = MediaPlayer.create(this,R.raw.jump_sound);
+            mediaPlayer.start();
         }
         if(i == 2)
         {
@@ -73,6 +77,8 @@ public class CarGame extends AppCompatActivity {
             stop_gif.setVisibility((View.GONE));
             turn_left_gif.setVisibility((View.GONE));
             turn_right_gif.setVisibility((View.GONE));
+            mediaPlayer = MediaPlayer.create(this,R.raw.start_sound);
+            mediaPlayer.start();
         }
         if(i == 3)
         {
@@ -81,6 +87,8 @@ public class CarGame extends AppCompatActivity {
             stop_gif.setVisibility((View.VISIBLE));
             turn_left_gif.setVisibility((View.GONE));
             turn_right_gif.setVisibility((View.GONE));
+            mediaPlayer = MediaPlayer.create(this,R.raw.stop_sound);
+            mediaPlayer.start();
         }
         if(i == 4)
         {
@@ -89,6 +97,8 @@ public class CarGame extends AppCompatActivity {
             stop_gif.setVisibility((View.GONE));
             turn_left_gif.setVisibility((View.VISIBLE));
             turn_right_gif.setVisibility((View.GONE));
+            mediaPlayer = MediaPlayer.create(this,R.raw.turn_left_sound);
+            mediaPlayer.start();
         }
         if(i == 5)
         {
@@ -97,6 +107,8 @@ public class CarGame extends AppCompatActivity {
             stop_gif.setVisibility((View.GONE));
             turn_left_gif.setVisibility((View.GONE));
             turn_right_gif.setVisibility((View.VISIBLE));
+            mediaPlayer = MediaPlayer.create(this,R.raw.turn_right_sound);
+            mediaPlayer.start();
         }
     }
 
