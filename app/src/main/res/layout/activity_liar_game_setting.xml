@@ -10,9 +10,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="라이어 게임"
+        android:textSize="40sp"
+        android:fontFamily="@font/kotra_bold"
         android:layout_gravity="center"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="70dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"
         android:text="초기값 세팅"
+        android:fontFamily="@font/kotra_bold"
         android:textSize="20dp" />
 
     <Spinner
@@ -41,6 +51,7 @@
             android:gravity="center"
             android:layout_height="wrap_content"
             android:text="인원 수 :"
+            android:fontFamily="@font/kotra_bold"
             android:textSize="15dp"/>
 
         <Spinner
@@ -64,6 +75,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="  시간 :"
+            android:fontFamily="@font/kotra_bold"
             android:textSize="15dp"/>
 
         <Spinner
@@ -78,6 +90,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="분"
+            android:fontFamily="@font/kotra_bold"
             android:textSize="13dp"/>
 
         <Spinner
@@ -92,25 +105,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="초"
+            android:fontFamily="@font/kotra_bold"
             android:textSize="13dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:gravity="center">
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
 
     </LinearLayout>
 
@@ -121,6 +117,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:text="시작 !"
+        android:fontFamily="@font/kotra_bold"
         android:textSize="15dp" />
 
 </LinearLayout>

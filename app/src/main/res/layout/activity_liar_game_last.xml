@@ -14,11 +14,12 @@
         android:layout_gravity="center"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="200dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/kotra_bold"
             android:text="라이어의 번호를 입력하시오."/>
 
         <EditText
@@ -27,30 +28,33 @@
             android:layout_height="wrap_content"
             android:id="@+id/edit_liar"
             android:layout_marginBottom="10dp"
-            android:inputType="number"
-            android:hint="숫자"/>
+            android:fontFamily="@font/kotra_bold"
+            android:inputType="number"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/kotra_bold"
             android:text="입력"
             android:id="@+id/btn_push"/>
 
 
     </LinearLayout>
 
+
     <TextView
+        android:id="@+id/text_after_choose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/text_after_choose"
         android:layout_gravity="center"
-        android:textSize="15dp"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="170dp"
+        android:fontFamily="@font/kotra_bold"
+        android:textSize="20dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="100dp"
         android:layout_gravity="center"
         android:id="@+id/layout_answers"
         android:orientation="vertical"
@@ -65,18 +69,22 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/kotra_bold"
                 android:id="@+id/btn1"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/kotra_bold"
                 android:id="@+id/btn2"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/kotra_bold"
                 android:id="@+id/btn3"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/kotra_bold"
                 android:id="@+id/btn4"/>
         </LinearLayout>
         <LinearLayout
@@ -88,18 +96,22 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/kotra_bold"
                 android:id="@+id/btn5"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/kotra_bold"
                 android:id="@+id/btn6"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/kotra_bold"
                 android:id="@+id/btn7"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/kotra_bold"
                 android:id="@+id/btn8"/>
         </LinearLayout>
         <LinearLayout
@@ -111,18 +123,22 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/kotra_bold"
                 android:id="@+id/btn9"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/kotra_bold"
                 android:id="@+id/btn10"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/kotra_bold"
                 android:id="@+id/btn11"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/kotra_bold"
                 android:id="@+id/btn12"/>
         </LinearLayout>
         <LinearLayout
@@ -134,18 +150,22 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/kotra_bold"
                 android:id="@+id/btn13"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/kotra_bold"
                 android:id="@+id/btn14"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/kotra_bold"
                 android:id="@+id/btn15"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/kotra_bold"
                 android:id="@+id/btn16"/>
         </LinearLayout>
 
@@ -155,7 +175,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="100dp"
         android:textSize="30dp"
+        android:fontFamily="@font/kotra_bold"
         android:id="@+id/text_clock"/>
 
 </LinearLayout>

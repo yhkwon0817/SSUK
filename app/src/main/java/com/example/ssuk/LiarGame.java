@@ -3,9 +3,13 @@ package com.example.ssuk;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -102,9 +106,22 @@ public class LiarGame extends AppCompatActivity {
                     btn_next.setVisibility(View.VISIBLE);
                     btn_next.setText("범인 색출하기");
                     //모드
-                    if (mode == 0) text_isLiar.setText("범인 색출 시작!\n누가 라이어인지\n맞춰 봅시다!");
-                    else if (mode == 1) text_isLiar.setText("범인 색출 시작!\n누가 라이어 혹은\n스파이인지\n맞춰 봅시다!");
-                    else text_isLiar.setText("범인 색출 시작!\n누가 바보인지\n맞춰 봅시다!");
+                    if (mode == 0) {
+                        SpannableStringBuilder sp = new SpannableStringBuilder("범인 색출 시작!\n누가 라이어인지\n맞춰 봅시다!");
+                        sp.setSpan(new ForegroundColorSpan(Color.RED), 13, 16, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        text_isLiar.setText(sp);
+                    }
+                    else if (mode == 1){
+                        SpannableStringBuilder sp = new SpannableStringBuilder("범인 색출 시작!\n누가 라이어 혹은\n스파이인지\n맞춰 봅시다!");
+                        sp.setSpan(new ForegroundColorSpan(Color.RED), 13, 16, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        sp.setSpan(new ForegroundColorSpan(Color.RED), 20, 23, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        text_isLiar.setText(sp);
+                    }
+                    else {
+                        SpannableStringBuilder sp = new SpannableStringBuilder("범인 색출 시작!\n누가 바보인지\n맞춰 봅시다!");
+                        sp.setSpan(new ForegroundColorSpan(Color.RED), 13, 15, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        text_isLiar.setText(sp);
+                    }
                     //타이머
                     timerTask();
                     countDownTime();
@@ -118,11 +135,17 @@ public class LiarGame extends AppCompatActivity {
                 } else if (i == randN_liar * 2 + 1) {
                     text_isLiar.setVisibility(View.VISIBLE);
                     if (mode == 2) text_isLiar.setText(array[category_number][randN_topic_fool]);
-                    else text_isLiar.setText("당신은\n라이어입니다.");
+                    else {
+                        SpannableStringBuilder sp = new SpannableStringBuilder("당신은\n라이어입니다.");
+                        sp.setSpan(new ForegroundColorSpan(Color.RED), 4, 7, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        text_isLiar.setText(sp);
+                    }
                     btn_next.setText("확인 완료");
                 } else if (mode == 1 && i == randN_spy * 2 + 1) {
                     text_isLiar.setVisibility(View.VISIBLE);
-                    text_isLiar.setText("당신은\n스파이입니다.\n" + answer);
+                    SpannableStringBuilder sp = new SpannableStringBuilder("당신은\n스파이입니다.");
+                    sp.setSpan(new ForegroundColorSpan(Color.RED), 4, 7, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    text_isLiar.setText(sp);
                     btn_next.setText("확인 완료");
                 } else if (i % 2 == 1) {
                     text_isLiar.setVisibility(View.VISIBLE);
