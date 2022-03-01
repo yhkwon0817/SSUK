@@ -2,11 +2,15 @@ package com.example.ssuk;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
@@ -177,6 +181,7 @@ public class LiarGame extends AppCompatActivity {
 
                 if (num + 1 == 0) {
                     countDownTimer.onFinish();
+
                 }
 
                 int m = (int) ((num + 1) / 60);
@@ -188,6 +193,12 @@ public class LiarGame extends AppCompatActivity {
 
             @Override
             public void onFinish() {
+                Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    vibrator.vibrate(VibrationEffect.createOneShot(1000, VibrationEffect.DEFAULT_AMPLITUDE));
+                } else {
+                    vibrator.vibrate(1000);
+                }
                 layout_timer.setVisibility(View.INVISIBLE);
                 timerTask.cancel();
                 timerTask = null;
