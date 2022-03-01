@@ -12,18 +12,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="130dp"
-        >
+        android:layout_marginTop="130dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="주제 : "
-            android:textSize="20dp"
-            />
+            android:text="모드 : "
+            android:fontFamily="@font/kotra_bold"
+            android:textSize="20dp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30dp"
+            android:fontFamily="@font/kotra_bold"
+            android:id="@+id/text_mode"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="주제 : "
+            android:fontFamily="@font/kotra_bold"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:fontFamily="@font/kotra_bold"
             android:id="@+id/text_topic"/>
 
     </LinearLayout>
@@ -33,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="vertical"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:gravity="center">
 
         <TextView
@@ -42,6 +65,7 @@
             android:layout_marginTop="40dp"
             android:visibility="invisible"
             android:id="@+id/text_isLiar"
+            android:fontFamily="@font/kotra_bold"
             android:gravity="center"
             android:textSize="30dp"/>
 
@@ -51,6 +75,9 @@
             android:layout_marginTop="40dp"
             android:layout_marginBottom="40dp"
             android:textSize="30dp"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:fontFamily="@font/kotra_bold"
             android:id="@+id/btn_next"/>
 
     </LinearLayout>
@@ -68,17 +95,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/min"
+            android:fontFamily="@font/kotra_bold"
             android:textSize="30dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30dp"
+            android:fontFamily="@font/kotra_bold"
             android:text=" : "/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/kotra_bold"
             android:id="@+id/sec"
             android:textSize="30dp"/>
 
