@@ -8,6 +8,7 @@ import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextClock;
 import android.widget.TextView;
@@ -37,8 +38,9 @@ public class LiarGameLast extends AppCompatActivity {
 
     Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11, btn12, btn13, btn14, btn15, btn16;
     Button btn_push;
+    ImageButton btn_back, btn_home;
     TextView textClock, text_after_choose;
-    LinearLayout layout_answers, layout_choose_liar;
+    LinearLayout layout_answers, layout_choose_liar, layout_back_and_home;
     EditText edit_liar;
 
     @Override
@@ -71,12 +73,31 @@ public class LiarGameLast extends AppCompatActivity {
         btn14 = findViewById(R.id.btn14);
         btn15 = findViewById(R.id.btn15);
         btn16 = findViewById(R.id.btn16);
+        btn_home = findViewById(R.id.btn_home);
+        btn_back = findViewById(R.id.btn_back);
         textClock = findViewById(R.id.text_clock);
         text_after_choose = findViewById(R.id.text_after_choose);
         layout_answers = findViewById(R.id.layout_answers);
         layout_choose_liar = findViewById(R.id.layout_choose_liar);
+        layout_back_and_home = findViewById(R.id.layout_back_and_home);
         btn_push = findViewById(R.id.btn_push);
         edit_liar = findViewById(R.id.edit_liar);
+
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LiarGameLast.this, LiarGameSetting.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LiarGameLast.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btn_push.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,11 +107,14 @@ public class LiarGameLast extends AppCompatActivity {
                     int push = Integer.parseInt(edit_liar.getText().toString());
                     if ((Integer) push >= 1 && (Integer) push <= people) {
                         layout_choose_liar.setVisibility(View.GONE);
+                        layout_back_and_home.setVisibility(View.VISIBLE);
                         if (mode == 1 && push == num_spy) {
                             text_after_choose.setText("스파이 검거 완료! 끝");
                         } else if (push == num_liar) {
-                            if(mode==0)text_after_choose.setText("라이어 검거!!\n라이어는 제시어를 맞추시길 바랍니다.\n제한시간 10초");
-                            else text_after_choose.setText("바보 검거!!\n바보는 제시어를 맞추시길 바랍니다.\n제한시간 10초");
+                            if (mode == 0)
+                                text_after_choose.setText("라이어 검거!!\n라이어는 제시어를 맞추시길 바랍니다.\n제한시간 10초");
+                            else
+                                text_after_choose.setText("바보 검거!!\n바보는 제시어를 맞추시길 바랍니다.\n제한시간 10초");
                             layout_answers.setVisibility(View.VISIBLE);
                             answer = array[category_number][num_answer];
                             answer_place = (int) (Math.random() * 16);
@@ -117,12 +141,13 @@ public class LiarGameLast extends AppCompatActivity {
                                 public void onClick(View view) {
                                     stopTimerTask();
                                     if (btn1.getText().toString().equals(answer)) {
-                                        if(mode==0) text_after_choose.setText("정답입니다.\n라이어 승리!");
-                                        else if(mode==1)text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
+                                        if (mode == 0) text_after_choose.setText("정답입니다.\n라이어 승리!");
+                                        else if (mode == 1)
+                                            text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
                                         else text_after_choose.setText("정답입니다.\n바보 승리");
                                         layout_answers.setVisibility(View.GONE);
                                     } else
-                                        text_after_choose.setText("땡!\n정답은" + answer + "입니다.");
+                                        text_after_choose.setText("땡!\n정답은 " + answer + "입니다.");
                                     layout_answers.setVisibility(View.GONE);
                                 }
                             });
@@ -131,12 +156,13 @@ public class LiarGameLast extends AppCompatActivity {
                                 public void onClick(View view) {
                                     stopTimerTask();
                                     if (btn2.getText().toString().equals(answer)) {
-                                        if(mode==0) text_after_choose.setText("정답입니다.\n라이어 승리!");
-                                        else if(mode==1)text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
+                                        if (mode == 0) text_after_choose.setText("정답입니다.\n라이어 승리!");
+                                        else if (mode == 1)
+                                            text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
                                         else text_after_choose.setText("정답입니다.\n바보 승리");
                                         layout_answers.setVisibility(View.GONE);
                                     } else
-                                        text_after_choose.setText("땡!\n정답은" + answer + "입니다.");
+                                        text_after_choose.setText("땡!\n정답은 " + answer + "입니다.");
                                     layout_answers.setVisibility(View.GONE);
                                 }
                             });
@@ -145,12 +171,13 @@ public class LiarGameLast extends AppCompatActivity {
                                 public void onClick(View view) {
                                     stopTimerTask();
                                     if (btn3.getText().toString().equals(answer)) {
-                                        if(mode==0) text_after_choose.setText("정답입니다.\n라이어 승리!");
-                                        else if(mode==1)text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
+                                        if (mode == 0) text_after_choose.setText("정답입니다.\n라이어 승리!");
+                                        else if (mode == 1)
+                                            text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
                                         else text_after_choose.setText("정답입니다.\n바보 승리");
                                         layout_answers.setVisibility(View.GONE);
                                     } else
-                                        text_after_choose.setText("땡!\n정답은" + answer + "입니다.");
+                                        text_after_choose.setText("땡!\n정답은 " + answer + "입니다.");
                                     layout_answers.setVisibility(View.GONE);
                                 }
                             });
@@ -159,12 +186,13 @@ public class LiarGameLast extends AppCompatActivity {
                                 public void onClick(View view) {
                                     stopTimerTask();
                                     if (btn4.getText().toString().equals(answer)) {
-                                        if(mode==0) text_after_choose.setText("정답입니다.\n라이어 승리!");
-                                        else if(mode==1)text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
+                                        if (mode == 0) text_after_choose.setText("정답입니다.\n라이어 승리!");
+                                        else if (mode == 1)
+                                            text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
                                         else text_after_choose.setText("정답입니다.\n바보 승리");
                                         layout_answers.setVisibility(View.GONE);
                                     } else
-                                        text_after_choose.setText("땡!\n정답은" + answer + "입니다.");
+                                        text_after_choose.setText("땡!\n정답은 " + answer + "입니다.");
                                     layout_answers.setVisibility(View.GONE);
                                 }
                             });
@@ -173,12 +201,13 @@ public class LiarGameLast extends AppCompatActivity {
                                 public void onClick(View view) {
                                     stopTimerTask();
                                     if (btn5.getText().toString().equals(answer)) {
-                                        if(mode==0) text_after_choose.setText("정답입니다.\n라이어 승리!");
-                                        else if(mode==1)text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
+                                        if (mode == 0) text_after_choose.setText("정답입니다.\n라이어 승리!");
+                                        else if (mode == 1)
+                                            text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
                                         else text_after_choose.setText("정답입니다.\n바보 승리");
                                         layout_answers.setVisibility(View.GONE);
                                     } else
-                                        text_after_choose.setText("땡!\n정답은" + answer + "입니다.");
+                                        text_after_choose.setText("땡!\n정답은 " + answer + "입니다.");
                                     layout_answers.setVisibility(View.GONE);
                                 }
                             });
@@ -187,12 +216,13 @@ public class LiarGameLast extends AppCompatActivity {
                                 public void onClick(View view) {
                                     stopTimerTask();
                                     if (btn6.getText().toString().equals(answer)) {
-                                        if(mode==0) text_after_choose.setText("정답입니다.\n라이어 승리!");
-                                        else if(mode==1)text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
+                                        if (mode == 0) text_after_choose.setText("정답입니다.\n라이어 승리!");
+                                        else if (mode == 1)
+                                            text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
                                         else text_after_choose.setText("정답입니다.\n바보 승리");
                                         layout_answers.setVisibility(View.GONE);
                                     } else
-                                        text_after_choose.setText("땡!\n정답은" + answer + "입니다.");
+                                        text_after_choose.setText("땡!\n정답은 " + answer + "입니다.");
                                     layout_answers.setVisibility(View.GONE);
                                 }
                             });
@@ -201,12 +231,13 @@ public class LiarGameLast extends AppCompatActivity {
                                 public void onClick(View view) {
                                     stopTimerTask();
                                     if (btn7.getText().toString().equals(answer)) {
-                                        if(mode==0) text_after_choose.setText("정답입니다.\n라이어 승리!");
-                                        else if(mode==1)text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
+                                        if (mode == 0) text_after_choose.setText("정답입니다.\n라이어 승리!");
+                                        else if (mode == 1)
+                                            text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
                                         else text_after_choose.setText("정답입니다.\n바보 승리");
                                         layout_answers.setVisibility(View.GONE);
                                     } else
-                                        text_after_choose.setText("땡!\n정답은" + answer + "입니다.");
+                                        text_after_choose.setText("땡!\n정답은 " + answer + "입니다.");
                                     layout_answers.setVisibility(View.GONE);
                                 }
                             });
@@ -215,12 +246,13 @@ public class LiarGameLast extends AppCompatActivity {
                                 public void onClick(View view) {
                                     stopTimerTask();
                                     if (btn8.getText().toString().equals(answer)) {
-                                        if(mode==0) text_after_choose.setText("정답입니다.\n라이어 승리!");
-                                        else if(mode==1)text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
+                                        if (mode == 0) text_after_choose.setText("정답입니다.\n라이어 승리!");
+                                        else if (mode == 1)
+                                            text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
                                         else text_after_choose.setText("정답입니다.\n바보 승리");
                                         layout_answers.setVisibility(View.GONE);
                                     } else
-                                        text_after_choose.setText("땡!\n정답은" + answer + "입니다.");
+                                        text_after_choose.setText("땡!\n정답은 " + answer + "입니다.");
                                     layout_answers.setVisibility(View.GONE);
                                 }
                             });
@@ -229,12 +261,13 @@ public class LiarGameLast extends AppCompatActivity {
                                 public void onClick(View view) {
                                     stopTimerTask();
                                     if (btn9.getText().toString().equals(answer)) {
-                                        if(mode==0) text_after_choose.setText("정답입니다.\n라이어 승리!");
-                                        else if(mode==1)text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
+                                        if (mode == 0) text_after_choose.setText("정답입니다.\n라이어 승리!");
+                                        else if (mode == 1)
+                                            text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
                                         else text_after_choose.setText("정답입니다.\n바보 승리");
                                         layout_answers.setVisibility(View.GONE);
                                     } else
-                                        text_after_choose.setText("땡!\n정답은" + answer + "입니다.");
+                                        text_after_choose.setText("땡!\n정답은 " + answer + "입니다.");
                                     layout_answers.setVisibility(View.GONE);
                                 }
                             });
@@ -243,12 +276,13 @@ public class LiarGameLast extends AppCompatActivity {
                                 public void onClick(View view) {
                                     stopTimerTask();
                                     if (btn10.getText().toString().equals(answer)) {
-                                        if(mode==0) text_after_choose.setText("정답입니다.\n라이어 승리!");
-                                        else if(mode==1)text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
+                                        if (mode == 0) text_after_choose.setText("정답입니다.\n라이어 승리!");
+                                        else if (mode == 1)
+                                            text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
                                         else text_after_choose.setText("정답입니다.\n바보 승리");
                                         layout_answers.setVisibility(View.GONE);
                                     } else
-                                        text_after_choose.setText("땡!\n정답은" + answer + "입니다.");
+                                        text_after_choose.setText("땡!\n정답은 " + answer + "입니다.");
                                     layout_answers.setVisibility(View.GONE);
                                 }
                             });
@@ -257,12 +291,13 @@ public class LiarGameLast extends AppCompatActivity {
                                 public void onClick(View view) {
                                     stopTimerTask();
                                     if (btn11.getText().toString().equals(answer)) {
-                                        if(mode==0) text_after_choose.setText("정답입니다.\n라이어 승리!");
-                                        else if(mode==1)text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
+                                        if (mode == 0) text_after_choose.setText("정답입니다.\n라이어 승리!");
+                                        else if (mode == 1)
+                                            text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
                                         else text_after_choose.setText("정답입니다.\n바보 승리");
                                         layout_answers.setVisibility(View.GONE);
                                     } else
-                                        text_after_choose.setText("땡!\n정답은" + answer + "입니다.");
+                                        text_after_choose.setText("땡!\n정답은 " + answer + "입니다.");
                                     layout_answers.setVisibility(View.GONE);
                                 }
                             });
@@ -271,12 +306,13 @@ public class LiarGameLast extends AppCompatActivity {
                                 public void onClick(View view) {
                                     stopTimerTask();
                                     if (btn12.getText().toString().equals(answer)) {
-                                        if(mode==0) text_after_choose.setText("정답입니다.\n라이어 승리!");
-                                        else if(mode==1)text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
+                                        if (mode == 0) text_after_choose.setText("정답입니다.\n라이어 승리!");
+                                        else if (mode == 1)
+                                            text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
                                         else text_after_choose.setText("정답입니다.\n바보 승리");
                                         layout_answers.setVisibility(View.GONE);
                                     } else
-                                        text_after_choose.setText("땡!\n정답은" + answer + "입니다.");
+                                        text_after_choose.setText("땡!\n정답은 " + answer + "입니다.");
                                     layout_answers.setVisibility(View.GONE);
                                 }
                             });
@@ -285,12 +321,13 @@ public class LiarGameLast extends AppCompatActivity {
                                 public void onClick(View view) {
                                     stopTimerTask();
                                     if (btn13.getText().toString().equals(answer)) {
-                                        if(mode==0) text_after_choose.setText("정답입니다.\n라이어 승리!");
-                                        else if(mode==1)text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
+                                        if (mode == 0) text_after_choose.setText("정답입니다.\n라이어 승리!");
+                                        else if (mode == 1)
+                                            text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
                                         else text_after_choose.setText("정답입니다.\n바보 승리");
                                         layout_answers.setVisibility(View.GONE);
                                     } else
-                                        text_after_choose.setText("땡!\n정답은" + answer + "입니다.");
+                                        text_after_choose.setText("땡!\n정답은 " + answer + "입니다.");
                                     layout_answers.setVisibility(View.GONE);
                                 }
                             });
@@ -299,12 +336,13 @@ public class LiarGameLast extends AppCompatActivity {
                                 public void onClick(View view) {
                                     stopTimerTask();
                                     if (btn14.getText().toString().equals(answer)) {
-                                        if(mode==0) text_after_choose.setText("정답입니다.\n라이어 승리!");
-                                        else if(mode==1)text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
+                                        if (mode == 0) text_after_choose.setText("정답입니다.\n라이어 승리!");
+                                        else if (mode == 1)
+                                            text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
                                         else text_after_choose.setText("정답입니다.\n바보 승리");
                                         layout_answers.setVisibility(View.GONE);
                                     } else
-                                        text_after_choose.setText("땡!\n정답은" + answer + "입니다.");
+                                        text_after_choose.setText("땡!\n정답은 " + answer + "입니다.");
                                     layout_answers.setVisibility(View.GONE);
                                 }
                             });
@@ -313,12 +351,13 @@ public class LiarGameLast extends AppCompatActivity {
                                 public void onClick(View view) {
                                     stopTimerTask();
                                     if (btn15.getText().toString().equals(answer)) {
-                                        if(mode==0) text_after_choose.setText("정답입니다.\n라이어 승리!");
-                                        else if(mode==1)text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
+                                        if (mode == 0) text_after_choose.setText("정답입니다.\n라이어 승리!");
+                                        else if (mode == 1)
+                                            text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
                                         else text_after_choose.setText("정답입니다.\n바보 승리");
                                         layout_answers.setVisibility(View.GONE);
                                     } else
-                                        text_after_choose.setText("땡!\n정답은" + answer + "입니다.");
+                                        text_after_choose.setText("땡!\n정답은 " + answer + "입니다.");
                                     layout_answers.setVisibility(View.GONE);
                                 }
                             });
@@ -327,22 +366,27 @@ public class LiarGameLast extends AppCompatActivity {
                                 public void onClick(View view) {
                                     stopTimerTask();
                                     if (btn16.getText().toString().equals(answer)) {
-                                        if(mode==0) text_after_choose.setText("정답입니다.\n라이어 승리!");
-                                        else if(mode==1)text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
+                                        if (mode == 0) text_after_choose.setText("정답입니다.\n라이어 승리!");
+                                        else if (mode == 1)
+                                            text_after_choose.setText("정답입니다.\n라이어, 스파이 승리");
                                         else text_after_choose.setText("정답입니다.\n바보 승리");
                                         layout_answers.setVisibility(View.GONE);
                                     } else
-                                        text_after_choose.setText("땡!\n정답은" + answer + "입니다.");
+                                        text_after_choose.setText("땡!\n정답은 " + answer + "입니다.");
                                     layout_answers.setVisibility(View.GONE);
                                 }
                             });
 
                         } else {
-                            if(mode==0) text_after_choose.setText("틀렸습니다.\n라이어는 바로\n" + num_liar + "번 플레이어 입니다!");
-                            else if(mode==1)text_after_choose.setText("틀렸습니다.\n라이어, 스파이는 각각\n" + num_liar + ", "+num_spy+"번 플레이어 입니다!");
-                            else text_after_choose.setText("틀렸습니다.\n바보는 바로\n" + num_liar + "번 플레이어 입니다!");
+                            layout_answers.setVisibility(View.GONE);
+                            textClock.setVisibility(View.GONE);
+                            if(mode == 0)
+                                text_after_choose.setText("틀렸습니다.\n라이어는 바로\n" + num_liar + "번 플레이어 입니다!");
+                            else if (mode == 1)
+                                text_after_choose.setText("틀렸습니다.\n라이어, 스파이는 각각\n" + num_liar + ", " + num_spy + "번 플레이어 입니다!");
+                            else
+                                text_after_choose.setText("틀렸습니다.\n바보는 바로\n" + num_liar + "번 플레이어 입니다!");
                         }
-
                     } else Toast.makeText(getApplicationContext(),
                             "알맞은 숫자를 기입하시길 바랍니다.", Toast.LENGTH_SHORT).show();
 
@@ -386,9 +430,10 @@ public class LiarGameLast extends AppCompatActivity {
                     public void run() {
                         if (count == -1) {
                             textClock.setVisibility(View.GONE);
-                            if(mode==0) text_after_choose.setText("실패!\n라이어는 바로\n" + num_liar + "번 플레이어 입니다!");
-                            else if(mode==1)text_after_choose.setText("실패!\n라이어, 스파이는 각각\n" + num_liar + ", "+num_spy+"번 플레이어 입니다!");
-                            else text_after_choose.setText("실패!\n바보는 바로\n" + num_liar + "번 플레이어 입니다!");
+                            if (mode == 1)
+                                text_after_choose.setText("실패!\n정답은 "+answer+"이고\n스파이는 " + num_spy + "번 플레이어 입니다!");
+                            else
+                                text_after_choose.setText("실패!\n정답은 "+answer+"입니다.");
                             layout_answers.setVisibility(View.GONE);
                         } else if (count < -1) {
                             stopTimerTask();
