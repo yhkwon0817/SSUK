@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         logo2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),PictureGame.class);
+                Intent intent = new Intent(getApplicationContext(),PictureGameSetting.class);
                 startActivity(intent);
             }
         });
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        logo1.setOnClickListener(new View.OnClickListener() {
+        logo4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),LiarGameSetting.class);
