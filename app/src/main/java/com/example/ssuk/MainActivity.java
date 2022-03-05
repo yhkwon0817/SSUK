@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                     intent = new Intent(getApplicationContext(), FourWordsGameSetting.class);
 
                 if(i == 1)
-                    intent = new Intent(getApplicationContext(), PictureGameSetting.class);
+                    intent = new Intent(getApplicationContext(), PictureGame.class);
 
                 if(i == 2)
                     intent = new Intent(getApplicationContext(), CarGameSetting.class);
