@@ -3,6 +3,9 @@ package com.example.ssuk;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.AudioAttributes;
+import android.media.SoundPool;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -38,6 +41,17 @@ public class PictureGame extends AppCompatActivity {
         setContentView(R.layout.activity_picture_game);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+       /* mSoundPool = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            AudioAttributes mAudioAttributes = new AudioAttributes.Builder()
+                    .setUsage(AudioAttributes.USAGE_GAME)
+                    .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                    .build();
+            new SoundPool.Builder()
+                    .setAudioAttributes(mAudioAttributes)
+                    .setMaxStreams(2).build();
+        }
+        SoundPool.Builder().*/
 
         timeview = findViewById(R.id.time);
         screen = findViewById(R.id.screen);
