@@ -86,7 +86,7 @@ public class PictureGame extends AppCompatActivity {
         stopTimerTask();
         change_pb();
 
-        if(index_ == repeat){
+        if(index_ == repeat + 1){
             // 종료 이미지 넣어야 함
             pic.setImageResource(R.drawable.endpg2);
             timeview.setText("");
@@ -120,21 +120,22 @@ public class PictureGame extends AppCompatActivity {
     }
     
     //답 어떻게 가져올지 생각
-    View.OnClickListener onClickListener = new View.OnClickListener() {
+    /*View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             switch(view.getId()){
                 case R.id.btn:
+
                     //Toast.makeText(getApplicationContext(), )
                 
             }
         }
-    };
+    };*/
 
     View.OnTouchListener onTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            if(index_ < repeat){
+            if(index_ < repeat + 1){
                 startTimerTask();
                 return false;
             }
