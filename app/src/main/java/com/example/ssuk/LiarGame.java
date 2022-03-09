@@ -8,7 +8,6 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.text.Spannable;
@@ -32,7 +31,7 @@ public class LiarGame extends AppCompatActivity {
     public int i = 0;
     public int mode = 0;
 
-    public String[][] array = {{""},
+    public String[][] array = {
             {"사자", "호랑이", "곰", "퓨마", "낙타", "기린", "다람쥐", "원숭이", "아르마딜로", "돌고래",
                     "박쥐", "캥거루", "삵", "하이에나", "말", "닭"},
             {"어바웃타임", "it", "밀정", "탐정", "노트북", "인턴", "좋은놈 나쁜놈 이상한놈", "미녀와 야수", "어벤져스", "2012",
@@ -42,7 +41,7 @@ public class LiarGame extends AppCompatActivity {
             {"냉장고", "전자렌지", "전기모기채", "전기장판", "리모컨", "TV"}
 
     };
-    public String[] items_category = {" ", "동물", "영화", "유명인사", "가전제품", "만화", "사자성어"};
+    public String[] items_category = {"동물", "영화", "유명인사", "가전제품", "만화", "사자성어"};
     public String[] items_modes = {"일반", "스파이", "바보"};//모드
 
     Timer timer;
