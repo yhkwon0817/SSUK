@@ -23,7 +23,7 @@ public class LiarGameLast extends AppCompatActivity {
     public String answer = "";
     public int[] check = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-    public String[][] array = {{""},
+    public String[][] array = {
             {"사자", "호랑이", "곰", "퓨마", "낙타", "기린", "다람쥐", "원숭이", "아르마딜로", "돌고래",
                     "박쥐", "캥거루", "삵", "하이에나", "말", "닭"},
             {"어바웃타임", "it", "밀정", "탐정", "노트북", "인턴", "좋은놈 나쁜놈 이상한놈", "미녀와 야수", "어벤져스", "2012",

@@ -52,6 +52,8 @@ public class LiarGame extends AppCompatActivity {
     LinearLayout layout_timer;
     Button btn_next;
 
+    Vibrator vibrator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +80,7 @@ public class LiarGame extends AppCompatActivity {
 
         TextView text_topic = (TextView) findViewById(R.id.text_topic);
         TextView text_isLiar = (TextView) findViewById(R.id.text_isLiar);
-        TextView text_mode=(TextView)findViewById(R.id.text_mode);
+        TextView text_mode = (TextView) findViewById(R.id.text_mode);
         btn_next = findViewById(R.id.btn_next);
         min = findViewById(R.id.min);
         sec = findViewById(R.id.sec);
@@ -99,10 +101,11 @@ public class LiarGame extends AppCompatActivity {
                     intent.putExtra("정답 번호", randN_topic);
                     intent.putExtra("라이어", randN_liar + 1);
                     intent.putExtra("바보의 제시어", randN_topic_fool);
-                    intent.putExtra("스파이", randN_spy+1);
+                    intent.putExtra("스파이", randN_spy + 1);
                     intent.putExtra("카테고리 넘버", category_number);
                     intent.putExtra("모드", mode);
                     startActivity(intent);
+                    finish();
                 } else if (i == people * 2 + 1) {
                     text_isLiar.setVisibility(View.VISIBLE);
                     layout_timer.setVisibility(View.VISIBLE);
@@ -113,14 +116,12 @@ public class LiarGame extends AppCompatActivity {
                         SpannableStringBuilder sp = new SpannableStringBuilder("범인 색출 시작!\n누가 라이어인지\n맞춰 봅시다!");
                         sp.setSpan(new ForegroundColorSpan(Color.RED), 13, 16, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                         text_isLiar.setText(sp);
-                    }
-                    else if (mode == 1){
+                    } else if (mode == 1) {
                         SpannableStringBuilder sp = new SpannableStringBuilder("범인 색출 시작!\n누가 라이어 혹은\n스파이인지\n맞춰 봅시다!");
                         sp.setSpan(new ForegroundColorSpan(Color.RED), 13, 16, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                         sp.setSpan(new ForegroundColorSpan(Color.RED), 20, 23, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                         text_isLiar.setText(sp);
-                    }
-                    else {
+                    } else {
                         SpannableStringBuilder sp = new SpannableStringBuilder("범인 색출 시작!\n누가 바보인지\n맞춰 봅시다!");
                         sp.setSpan(new ForegroundColorSpan(Color.RED), 13, 15, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                         text_isLiar.setText(sp);
@@ -171,6 +172,11 @@ public class LiarGame extends AppCompatActivity {
         };
     }
 
+    public void stopTimerTask() {
+        timerTask.cancel();
+        timerTask = null;
+    }
+
     public void countDownTime() {
         countDownTimer = new CountDownTimer(minute * 60000 + second * 1000, 1000) {
 
@@ -192,16 +198,19 @@ public class LiarGame extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    vibrator.vibrate(VibrationEffect.createOneShot(1000, VibrationEffect.DEFAULT_AMPLITUDE));
+                vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                vibrator.vibrate(VibrationEffect.createOneShot(1000, VibrationEffect.DEFAULT_AMPLITUDE));
+                /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
                 } else {
                     vibrator.vibrate(1000);
-                }
+                }*/
                 layout_timer.setVisibility(View.INVISIBLE);
                 timerTask.cancel();
                 timerTask = null;
             }
+
         };
     }
+
 }
