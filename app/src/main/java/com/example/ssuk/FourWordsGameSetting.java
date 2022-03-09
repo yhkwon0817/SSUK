@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class FourWordsGameSetting extends AppCompatActivity {
     EditText timeset, repeat;
     Spinner spinner;
-    Button startbtn;
+    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +24,12 @@ public class FourWordsGameSetting extends AppCompatActivity {
         spinner = findViewById(R.id.category);
         timeset = findViewById(R.id.timeset);
         repeat = findViewById(R.id.repeat);
-        startbtn = findViewById(R.id.startbtn);
+        btn = findViewById(R.id.startbtn);
 
-        startbtn.setOnClickListener(onClickListener);
+        btn.setOnClickListener(onClickListener);
 
         //카테고리 스피너 설정
-        ArrayAdapter categoryAdapter = ArrayAdapter.createFromResource(this, R.array.category, android.R.layout.simple_spinner_item);
+        ArrayAdapter categoryAdapter = ArrayAdapter.createFromResource(this, R.array.fourwordcategory, android.R.layout.simple_spinner_item);
         categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(categoryAdapter);
     }
@@ -40,22 +40,30 @@ public class FourWordsGameSetting extends AppCompatActivity {
         public void onClick(View view) {
             switch (view.getId()){
                 case R.id.startbtn:
-                    String setting_category = spinner.getSelectedItem().toString();
-                    int setting_repeat = Integer.parseInt(repeat.getText().toString());
-                    int setting_time = Integer.parseInt(timeset.getText().toString());
-                    //Log.e("###", Integer.toString(setting_repeat) + " " + Integer.toString(setting_time));
-
-                    if(setting_repeat > 0 && setting_repeat < 20 && setting_time >= 2 && setting_time <= 15){
-                        Intent intent = new Intent(FourWordsGameSetting.this, FourWordsGame.class);
-                        intent.putExtra("setting_repeat", setting_repeat);
-                        intent.putExtra("setting_time", setting_time);
-                        intent.putExtra("setting_category", setting_category);
-
-                        startActivity(intent);
+                    if(repeat.getText().length() <= 0 || timeset.getText().length() <= 0) {
+                        Toast.makeText(FourWordsGameSetting.this, "시간, 반복횟수를 입력해주세요", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        Toast.makeText(FourWordsGameSetting.this, "시간, 반복횟수를 다시 확인해주세요 !", Toast.LENGTH_SHORT).show();
+                        String setting_category = spinner.getSelectedItem().toString();
+                        int setting_repeat = Integer.parseInt(repeat.getText().toString());
+                        int setting_time = Integer.parseInt(timeset.getText().toString());
+                        //Log.e("###", Integer.toString(setting_repeat) + " " + Integer.toString(setting_time));
+
+                        if(setting_repeat > 0 && setting_repeat < 20 && setting_time >= 2 && setting_time <= 15){
+
+                            Intent intent = new Intent(FourWordsGameSetting.this, FourWordsGame.class);
+
+                            intent.putExtra("setting_repeat", setting_repeat);
+                            intent.putExtra("setting_time", setting_time);
+                            intent.putExtra("setting_category", setting_category);
+
+                            startActivity(intent);
+                        }
+                        else{
+                            Toast.makeText(FourWordsGameSetting.this, "시간, 반복횟수를 다시 확인해주세요 !", Toast.LENGTH_SHORT).show();
+                        }
                     }
+
                     break;
             }
         }

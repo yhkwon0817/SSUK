@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     
-    <string-array name="category">
+    <string-array name="fourwordcategory">
         <item>무작위</item>
         <item>사자성어</item>
         <item>인물</item>
         <item>음식</item>
     </string-array>
 
+    <string-array name="picturecategory">
+        <item>무작위</item>
+        <item>가수</item>
+        <item>배우</item>
+        <item>음식</item>
+        <item>영화</item>
+        <item>만화 캐릭터</item>
+    </string-array>
 
 
 </resources>

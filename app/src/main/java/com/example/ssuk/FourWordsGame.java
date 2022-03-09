@@ -22,12 +22,10 @@ import java.util.TimerTask;
 
 public class FourWordsGame extends AppCompatActivity {
 
-    boolean isFinish = false;
     ArrayList<String> problem = new ArrayList<String>();
 
     TextView tv, word1, word2, word3, word4;
     Button solution;
-    CountDownTimer countDownTimer;
     LinearLayout screen;
     TimerTask timerTask;
     Timer timer;
@@ -88,25 +86,12 @@ public class FourWordsGame extends AppCompatActivity {
         Collections.shuffle(problem);
     }
 
-    public void clickHandler(View view)
-    {
-        switch(view.getId())
-        {
-            case R.id.screen:
-
-                break;
-/*            case R.id.btn :
-                stopTimerTask();
-                break;*/
-        }
-    }
-
     public void startTimerTask() {
 
         stopTimerTask();
         change_pb();
 
-        if(index_ == repeat){
+        if(index_ == repeat + 1){
             word1.setText("게");
             word2.setText("임");
             word3.setText("종");
@@ -153,9 +138,8 @@ public class FourWordsGame extends AppCompatActivity {
     View.OnTouchListener onTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            if(index_ < repeat){
+            if(index_ < repeat + 1){
                 startTimerTask();
-                Log.e("###", index_ + "인덱스 터치 호출");
                 return false;
             }
             else return false;

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,27 +26,39 @@ public class MainActivity extends AppCompatActivity {
         mp.setLooping(true);
         mp.start();
 
-        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,LIST_MENU);
+        ImageView logo1 = (ImageView) findViewById(R.id.fourwordsgame_title);
+        ImageView logo2 = (ImageView) findViewById(R.id.picturegame_title);
+        ImageView logo3 = (ImageView) findViewById(R.id.cargame_title);
+        ImageView logo4 = (ImageView) findViewById(R.id.liargame_title);
 
-        ListView listview = (ListView) findViewById(R.id.listview1);
-        listview.setAdapter(adapter);
+        logo1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),FourWordsGameSetting.class);
+                startActivity(intent);
+            }
+        });
 
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        logo2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),PictureGameSetting.class);
+                startActivity(intent);
+            }
+        });
 
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getApplicationContext(), FourWordsGameSetting.class);
-                if(i == 0)
-                    intent = new Intent(getApplicationContext(), FourWordsGameSetting.class);
+        logo3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),CarGameSetting.class);
+                startActivity(intent);
+            }
+        });
 
-                if(i == 1)
-                    intent = new Intent(getApplicationContext(), PictureGame.class);
-
-                if(i == 2)
-                    intent = new Intent(getApplicationContext(), CarGameSetting.class);
-
-                if(i == 3)
-                    intent = new Intent(getApplicationContext(), LiarGameSetting.class);
-
+        logo4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),LiarGameSetting.class);
                 startActivity(intent);
             }
         });
