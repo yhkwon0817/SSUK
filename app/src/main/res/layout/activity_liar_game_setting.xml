@@ -14,25 +14,29 @@
         android:textSize="40sp"
         android:fontFamily="@font/kotra_bold"
         android:layout_gravity="center"
-        android:layout_marginTop="70dp"/>
+        android:layout_marginTop="60dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textSize="30sp"
-        android:fontFamily="@font/kotra_bold"
-        android:layout_marginTop="30dp"
-        android:id="@+id/mode"/>
+
 
     <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_width="340dp"
+        android:layout_height="330dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="30sp"
+            android:fontFamily="@font/kotra_bold"
+            android:id="@+id/mode"/>
 
         <ImageView
             android:layout_width="320dp"
             android:layout_height="320dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:scaleType="centerInside"
             android:src="@drawable/liar_normal"
             android:id="@+id/normal_mode"/>
@@ -40,6 +44,8 @@
         <ImageView
             android:layout_width="320dp"
             android:layout_height="320dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:scaleType="centerInside"
             android:src="@drawable/liar_spy"
             android:id="@+id/mafia_mode"
@@ -48,6 +54,8 @@
         <ImageView
             android:layout_width="320dp"
             android:layout_height="320dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:scaleType="centerInside"
             android:src="@drawable/liar_fool"
             android:id="@+id/fool_mode"
@@ -58,8 +66,8 @@
             android:layout_height="80dp"
             android:src="@drawable/liar_left"
             android:scaleType="centerInside"
-            android:layout_marginTop="120dp"
-            android:layout_marginLeft="25dp"
+            android:layout_marginTop="140dp"
+            android:layout_marginStart="35dp"
             android:background="@null"
             android:id="@+id/back_mode"/>
 
@@ -68,8 +76,8 @@
             android:layout_height="80dp"
             android:src="@drawable/liar_right"
             android:scaleType="centerInside"
-            android:layout_marginTop="120dp"
-            android:layout_marginEnd="25dp"
+            android:layout_marginTop="140dp"
+            android:layout_marginEnd="35dp"
             android:layout_gravity="end"
             android:background="@null"
             android:id="@+id/next_mode"/>
@@ -80,7 +88,7 @@
             android:layout_height="60dp"
             android:layout_gravity="bottom"
             android:gravity="center"
-            android:layout_marginLeft="100dp"
+            android:layout_marginStart="110dp"
             android:layout_marginBottom="28dp"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -93,7 +101,7 @@
             android:src="@drawable/liar_left"
             android:scaleType="centerInside"
             android:layout_gravity="bottom"
-            android:layout_marginStart="35dp"
+            android:layout_marginStart="40dp"
             android:layout_marginBottom="35dp"
             android:background="@null"
             android:id="@+id/back_category"/>
@@ -102,8 +110,8 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="end"
-            android:layout_marginTop="225dp"
-            android:layout_marginEnd="25dp"
+            android:layout_marginTop="235dp"
+            android:layout_marginEnd="35dp"
             android:src="@drawable/liar_right"
             android:scaleType="centerInside"
             android:background="@null"
@@ -118,27 +126,43 @@
         android:orientation="horizontal"
         android:gravity="center">
 
-        <ImageButton
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/liar_left"
-            android:background="@null"
-            android:scaleType="centerInside"/>
 
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/liar_sin"/>
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/crossed"/>
+        <ImageButton
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/liar_left"
+            android:id="@+id/back_people"
+            android:background="@null"
+            android:scaleType="centerInside"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:id="@+id/text_people"
+            android:fontFamily="@font/kotra_bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="명"
+            android:fontFamily="@font/kotra_bold"/>
 
         <ImageButton
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:src="@drawable/liar_right"
+            android:id="@+id/next_people"
             android:background="@null"
             android:scaleType="centerInside"/>
 
@@ -152,15 +176,41 @@
         android:orientation="horizontal"
         android:gravity="center">
 
-        <TextView
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="  시간 :"
-            android:fontFamily="@font/kotra_bold"
-            android:textSize="15dp"/>
 
-        <Spinner
+
+       <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@drawable/liar_clock"/>
+
+        <ImageButton
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/liar_left"
+            android:id="@+id/back_clock"
+            android:background="@null"
+            android:scaleType="centerInside"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:id="@+id/text_clock"
+            android:fontFamily="@font/kotra_bold"/>
+
+        <ImageButton
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/liar_right"
+            android:id="@+id/next_clock"
+            android:background="@null"
+            android:scaleType="centerInside"/>
+
+        <!--<Spinner
             android:id="@+id/spinner_minute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -188,31 +238,7 @@
             android:gravity="center"
             android:text="초"
             android:fontFamily="@font/kotra_bold"
-            android:textSize="13dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="80dp"
-            android:gravity="center"
-            android:layout_height="wrap_content"
-            android:text="인원 수 :"
-            android:fontFamily="@font/kotra_bold"
-            android:textSize="15dp"/>
-
-        <Spinner
-            android:id="@+id/spinner_number_of_people"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:autofillHints="카테고리"/>
+            android:textSize="13dp"/>-->
 
     </LinearLayout>
 
@@ -225,34 +251,5 @@
         android:text="시작 !"
         android:fontFamily="@font/kotra_bold"
         android:textSize="15dp" />
-
-    <!--<TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="150dp"
-        android:text="초기값 세팅"
-        android:fontFamily="@font/kotra_bold"
-        android:textSize="20dp" />
-
-    <Spinner
-        android:id="@+id/spinner_mode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"/>
-
-    <Spinner
-        android:id="@+id/spinner_category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"/>
--->
-
-
-
-
-
 
 </LinearLayout>
