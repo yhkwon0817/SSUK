@@ -56,10 +56,18 @@
             android:layout_height="wrap_content"
             android:text="4글자게임"
             android:textSize="25sp"
-            android:layout_marginLeft="40sp"
+            android:layout_marginLeft="35dp"
             android:fontFamily="@font/kotra_bold"
             />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사진게임"
+            android:textSize="25sp"
+            android:layout_marginLeft="70dp"
+            android:fontFamily="@font/kotra_bold"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -87,6 +95,30 @@
             android:layout_marginRight="10dp"
             android:src="@drawable/liargame_logo"
             android:layout_weight="1"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="붕붕붕게임"
+            android:textSize="25dp"
+            android:layout_marginLeft="25sp"
+            android:fontFamily="@font/kotra_bold"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="라이어게임"
+            android:textSize="25sp"
+            android:layout_marginLeft="60dp"
+            android:fontFamily="@font/kotra_bold"
             />
     </LinearLayout>
 </LinearLayout>
