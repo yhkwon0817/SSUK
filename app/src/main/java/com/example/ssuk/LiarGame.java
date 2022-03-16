@@ -2,14 +2,11 @@ package com.example.ssuk;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
@@ -69,7 +66,6 @@ public class LiarGame extends AppCompatActivity {
     LinearLayout layout_timer;
     Button btn_next;
 
-    Vibrator vibrator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -189,14 +185,10 @@ public class LiarGame extends AppCompatActivity {
         };
     }
 
-    public void stopTimerTask() {
-        timerTask.cancel();
-        timerTask = null;
-    }
-
     public void countDownTime() {
         countDownTimer = new CountDownTimer(minute * 60000 + second * 1000, 1000) {
 
+            @SuppressLint("SetTextI18n")
             @Override
             public void onTick(long millisUntilFinished) {
                 int num = (int) (millisUntilFinished / 1000);
@@ -215,13 +207,6 @@ public class LiarGame extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                vibrator.vibrate(VibrationEffect.createOneShot(1000, VibrationEffect.DEFAULT_AMPLITUDE));
-                /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-
-                } else {
-                    vibrator.vibrate(1000);
-                }*/
                 layout_timer.setVisibility(View.INVISIBLE);
                 timerTask.cancel();
                 timerTask = null;
