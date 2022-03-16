@@ -16,19 +16,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class FourWordsGame extends AppCompatActivity {
 
-    ArrayList<String> problem = new ArrayList<String>();
+    String[] problem = new ArrayList<String>().toArray(new String[0]);
 
     TextView tv, word1, word2, word3, word4;
     Button solution;
     LinearLayout screen;
     TimerTask timerTask;
     Timer timer;
+    String category;
 
     int repeat;
     int time;
@@ -58,7 +60,7 @@ public class FourWordsGame extends AppCompatActivity {
 
         repeat = setting.getIntExtra("setting_repeat", 0);
         time = setting.getIntExtra("setting_time", 0);
-        String category = setting.getStringExtra("setting_category");
+        category = setting.getStringExtra("setting_category");
 
         //문제 넣고 섞기
         putProblem();
@@ -69,21 +71,10 @@ public class FourWordsGame extends AppCompatActivity {
     }
 
     private void putProblem() {
-        problem.add("사필귀정");
-        problem.add("정문일침");
-        problem.add("죽마고우");
-        problem.add("수어지교");
-        problem.add("각골난망");
-        problem.add("군계일학");
-        problem.add("격세지감");
-        problem.add("계란투석");
-        problem.add("백면서생");
-        problem.add("좌정관천");
-        problem.add("고진감래");
-        problem.add("괄목상대");
-        problem.add("과유불급");
 
-        Collections.shuffle(problem);
+        if(category.equals("사자성어")) problem = getResources().getStringArray(R.array.sagha);
+        else problem = getResources().getStringArray(R.array.anyelse);
+        Collections.shuffle(Arrays.asList(problem));
     }
 
     public void startTimerTask() {
@@ -151,7 +142,7 @@ public class FourWordsGame extends AppCompatActivity {
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.btn:
-                    Toast.makeText(getApplicationContext(), problem.get(index_ - 1), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), problem[index_ - 1], Toast.LENGTH_SHORT).show();
                     break;
             }
         }
@@ -159,7 +150,7 @@ public class FourWordsGame extends AppCompatActivity {
 
     public void change_pb() {
 
-        char[] pb = (problem.get(index_)).toCharArray();
+        char[] pb = (problem[index_]).toCharArray();
         Log.e("###", Integer.toString(index_));
         word1.setText(Character.toString(pb[0]));
         word2.setText(Character.toString(pb[1]));

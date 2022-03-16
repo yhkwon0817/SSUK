@@ -8,30 +8,36 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class FourWordsGameSetting extends AppCompatActivity {
     EditText timeset, repeat;
-    Spinner spinner;
     Button btn;
+    ImageButton next, pre;
+    TextView category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_four_words_game_setting);
 
-        spinner = findViewById(R.id.category);
         timeset = findViewById(R.id.timeset);
         repeat = findViewById(R.id.repeat);
         btn = findViewById(R.id.startbtn);
+        category = findViewById(R.id.category);
+
+        next = findViewById(R.id.next_mode);
+        pre = findViewById(R.id.back_mode);
 
         btn.setOnClickListener(onClickListener);
+        next.setOnClickListener(onClickListener);
+        pre.setOnClickListener(onClickListener);
 
-        //카테고리 스피너 설정
-        ArrayAdapter categoryAdapter = ArrayAdapter.createFromResource(this, R.array.fourwordcategory, android.R.layout.simple_spinner_item);
-        categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(categoryAdapter);
+        category.setText("일상용어");
+
     }
 
     // click listener 한번에 관리해주기
@@ -44,7 +50,7 @@ public class FourWordsGameSetting extends AppCompatActivity {
                         Toast.makeText(FourWordsGameSetting.this, "시간, 반복횟수를 입력해주세요", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        String setting_category = spinner.getSelectedItem().toString();
+                        String setting_category = category.getText().toString();
                         int setting_repeat = Integer.parseInt(repeat.getText().toString());
                         int setting_time = Integer.parseInt(timeset.getText().toString());
                         //Log.e("###", Integer.toString(setting_repeat) + " " + Integer.toString(setting_time));
@@ -65,6 +71,12 @@ public class FourWordsGameSetting extends AppCompatActivity {
                     }
 
                     break;
+                case R.id.back_mode:
+                case R.id.next_mode:
+                    if(category.getText().equals("일상용어")) category.setText("사자성어");
+                    else category.setText("일상용어");
+                    break;
+
             }
         }
     };

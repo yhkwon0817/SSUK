@@ -19,13 +19,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Timer;
 import java.util.TimerTask;
+
 
 public class PictureGame extends AppCompatActivity {
 
     ArrayList<Integer> problem = new ArrayList<>();
 
+    String category;
     ImageView pic;
     TextView timeview;
     Button solution;
@@ -66,19 +70,77 @@ public class PictureGame extends AppCompatActivity {
 
         repeat = setting.getIntExtra("repeat_set", 0);
         time = setting.getIntExtra("time_set", 0);
-        String category = setting.getStringExtra("category");
+        category = setting.getStringExtra("category");
 
         putProblem();
         startTimerTask();
     }
 
     private void putProblem() {
-        problem.add(R.drawable.pg1);
-        problem.add(R.drawable.pg2);
-        problem.add(R.drawable.pg3);
-        problem.add(R.drawable.pg4);
-        problem.add(R.drawable.pg5);
-        problem.add(R.drawable.pg6);
+
+        if(category.equals("여자 배우")){
+            problem.add(R.drawable.pgw1);
+            problem.add(R.drawable.pgw2);
+            problem.add(R.drawable.pgw3);
+            problem.add(R.drawable.pgw4);
+            problem.add(R.drawable.pgw5);
+            problem.add(R.drawable.pgw6);
+            problem.add(R.drawable.pgw7);
+            problem.add(R.drawable.pgw8);
+            problem.add(R.drawable.pgw9);
+            problem.add(R.drawable.pgw10);
+            problem.add(R.drawable.pgw11);
+            problem.add(R.drawable.pgw12);
+            problem.add(R.drawable.pgw13);
+            problem.add(R.drawable.pgw14);
+            problem.add(R.drawable.pgw15);
+            problem.add(R.drawable.pgw16);
+            problem.add(R.drawable.pgw17);
+            problem.add(R.drawable.pgw18);
+            problem.add(R.drawable.pgw19);
+            problem.add(R.drawable.pgw20);
+        }
+        else if(category.equals("남자 배우")){
+            problem.add(R.drawable.pgm1);
+            problem.add(R.drawable.pgm2);
+            problem.add(R.drawable.pgm3);
+            problem.add(R.drawable.pgm4);
+            problem.add(R.drawable.pgm5);
+            problem.add(R.drawable.pgm6);
+            problem.add(R.drawable.pgm7);
+            problem.add(R.drawable.pgm8);
+            problem.add(R.drawable.pgm9);
+            problem.add(R.drawable.pgm10);
+            problem.add(R.drawable.pgm11);
+            problem.add(R.drawable.pgm12);
+            problem.add(R.drawable.pgm13);
+            problem.add(R.drawable.pgm14);
+            problem.add(R.drawable.pgm15);
+            problem.add(R.drawable.pgm16);
+            problem.add(R.drawable.pgm17);
+            problem.add(R.drawable.pgm18);
+            problem.add(R.drawable.pgm19);
+            problem.add(R.drawable.pgm20);
+        }
+        else{
+            problem.add(R.drawable.pgh1);
+            problem.add(R.drawable.pgh2);
+            problem.add(R.drawable.pgh3);
+            problem.add(R.drawable.pgh4);
+            problem.add(R.drawable.pgh5);
+            problem.add(R.drawable.pgh6);
+            problem.add(R.drawable.pgh7);
+            problem.add(R.drawable.pgh9);
+            problem.add(R.drawable.pgh10);
+            problem.add(R.drawable.pgh11);
+            problem.add(R.drawable.pgh12);
+            problem.add(R.drawable.pgh13);
+            problem.add(R.drawable.pgh14);
+            problem.add(R.drawable.pgh15);
+            problem.add(R.drawable.pgh16);
+            //problem.add(R.drawable.pgh17);
+        }
+        Collections.shuffle(Arrays.asList(problem));
     }
 
     public void startTimerTask(){
@@ -118,15 +180,14 @@ public class PictureGame extends AppCompatActivity {
             timer.schedule(timerTask, 0, 1000);
         }
     }
-    
+
     //답 어떻게 가져올지 생각
-    /*View.OnClickListener onClickListener = new View.OnClickListener() {
+/*    View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             switch(view.getId()){
                 case R.id.btn:
 
-                    //Toast.makeText(getApplicationContext(), )
                 
             }
         }
