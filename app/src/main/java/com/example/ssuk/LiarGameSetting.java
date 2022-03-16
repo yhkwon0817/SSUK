@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -58,11 +59,28 @@ public class LiarGameSetting extends AppCompatActivity {
         TextView text_category = (TextView) findViewById(R.id.text_category);
         TextView text_people = (TextView) findViewById(R.id.text_people);
         Button btn = (Button) findViewById(R.id.startBtn);
+        ImageView btn_liar_game_hint = (ImageView) findViewById(R.id.btn_liar_game_hint);
+        ImageView btn_close_liar_game_hint = (ImageView) findViewById(R.id.btn_close_liar_game_hint);
+        LinearLayout layout_liar_game_hint = (LinearLayout)findViewById(R.id.layout_liar_game_hint);
 
         text_category.setText(items_category[category_number]);
         text_mode.setText(items_modes[mode]);
         text_people.setText(Integer.toString(people));
         setClockText();
+
+        btn_liar_game_hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                layout_liar_game_hint.setVisibility(View.VISIBLE);
+
+                btn_close_liar_game_hint.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        layout_liar_game_hint.setVisibility(View.GONE);
+                    }
+                });
+            }
+        });
 
         btn_back_mode.setOnClickListener(new View.OnClickListener() {
             @Override

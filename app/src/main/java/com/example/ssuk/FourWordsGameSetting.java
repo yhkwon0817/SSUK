@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +35,24 @@ public class FourWordsGameSetting extends AppCompatActivity {
 
         next = findViewById(R.id.next_mode);
         pre = findViewById(R.id.back_mode);
+
+        ImageView btn_four_word_game_hint = (ImageView) findViewById(R.id.btn_four_word_game_hint);
+        ImageView btn_close_four_word_game_hint = (ImageView) findViewById(R.id.btn_close_four_word_game_hint);
+        LinearLayout layout_four_word_game_hint = (LinearLayout)findViewById(R.id.layout_four_word_game_hint);
+
+        btn_four_word_game_hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                layout_four_word_game_hint.setVisibility(View.VISIBLE);
+
+                btn_close_four_word_game_hint.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        layout_four_word_game_hint.setVisibility(View.GONE);
+                    }
+                });
+            }
+        });
 
         btn.setOnClickListener(onClickListener);
         next.setOnClickListener(onClickListener);

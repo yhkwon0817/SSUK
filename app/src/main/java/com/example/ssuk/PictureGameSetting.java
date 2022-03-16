@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,6 +50,24 @@ public class PictureGameSetting extends AppCompatActivity {
         mode = getResources().getStringArray(R.array.picturecategory);
         category.setText(mode[idx_]);
         startsound = MediaPlayer.create(this, R.raw.round_start);
+
+        ImageView btn_picture_game_hint = (ImageView) findViewById(R.id.btn_picture_game_hint);
+        ImageView btn_close_picture_game_hint = (ImageView) findViewById(R.id.btn_close_picture_game_hint);
+        LinearLayout layout_picture_game_hint = (LinearLayout)findViewById(R.id.layout_picture_game_hint);
+
+        btn_picture_game_hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                layout_picture_game_hint.setVisibility(View.VISIBLE);
+
+                btn_close_picture_game_hint.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        layout_picture_game_hint.setVisibility(View.GONE);
+                    }
+                });
+            }
+        });
 
     }
 

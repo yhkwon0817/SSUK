@@ -19,10 +19,46 @@
         android:text="4글자 게임"
         android:textSize="40sp" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/layout_four_word_game_hint"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:fontFamily="@font/kotra_bold"
+            android:textColor="@color/white"
+            android:text = "화면을 누르면 묘한이가 랜덤으로\n(좌회전,우회전,급정거,방지턱,급출발)\n중 하나를 실행합니다\n\n\n\n\n\n" />
+
+        <ImageView
+            android:src="@drawable/close"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:clickable="true"
+            android:id="@+id/btn_close_four_word_game_hint"/>
+
+    </LinearLayout>
+
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="end"
+            android:scaleType="centerInside"
+            android:src="@drawable/hint"
+            android:clickable="true"
+            android:id="@+id/btn_four_word_game_hint"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            />
 
         <ImageButton
             android:id="@+id/back_mode"
