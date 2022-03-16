@@ -1,14 +1,18 @@
 package com.example.ssuk;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.annotation.SuppressLint;
 import android.media.MediaPlayer;
 import android.opengl.Visibility;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -20,25 +24,31 @@ public class CarGame extends AppCompatActivity {
 
     ImageView jump_gif, start_gif, stop_gif, turn_left_gif, turn_right_gif;
     MediaPlayer mediaPlayer;
+    ConstraintLayout screen;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_game);
-        Button button = (Button) findViewById(R.id.Next_button);
 
         Image_Setting();
         Random_Image();
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Reset_Glide();
-                Image_Setting();
-                Random_Image();
-            }
-        });
+        screen = findViewById(R.id.screen);
+        screen.setOnTouchListener(onTouchListener);
+
     }
+
+    View.OnTouchListener onTouchListener = new View.OnTouchListener() {
+        @Override
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            Reset_Glide();
+            Image_Setting();
+            Random_Image();
+            return false;
+        }
+    };
 
     public void Image_Setting(){
         jump_gif = (ImageView) findViewById(R.id.jump_gif);

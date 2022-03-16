@@ -2,10 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:layout_gravity="center"
+    android:background="@color/white"
     tools:context=".CarGame">
 
     <ImageView
@@ -13,15 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="650sp"
         android:orientation="horizontal"
-        android:src="@drawable/jump_remove"
-         />
+        android:src="@drawable/jump_remove" />
 
     <ImageView
         android:id="@+id/start_gif"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/start_remove"
-        />
+        android:src="@drawable/start_remove" />
 
     <ImageView
         android:id="@+id/stop_gif"
@@ -37,16 +36,14 @@
         android:id="@+id/turn_left_gif"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/turn_left_remove"
-        />
+        android:src="@drawable/turn_left_remove" />
 
     <ImageView
         android:id="@+id/turn_right_gif"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/turn_right_remove"
-        />
-
+        android:src="@drawable/turn_right_remove" />
+<!--
     <Button
         android:id="@+id/Next_button"
         android:layout_width="wrap_content"
@@ -55,5 +52,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="648dp" />
+        tools:layout_editor_absoluteY="648dp" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

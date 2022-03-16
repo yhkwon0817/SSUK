@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -60,7 +61,8 @@ public class PictureGameSetting extends AppCompatActivity {
                         String setting_category = category.getText().toString();
                         int setting_repeat = Integer.parseInt(repeat.getText().toString());
                         int setting_time = Integer.parseInt(timeset.getText().toString());
-                        //Log.e("###", Integer.toString(setting_repeat) + " " + Integer.toString(setting_time));
+
+                        Log.e("###", "값 받는중");
 
                         if(setting_repeat > 0 && setting_repeat < 20 && setting_time >= 2 && setting_time <= 15){
 
@@ -70,6 +72,7 @@ public class PictureGameSetting extends AppCompatActivity {
                             intent.putExtra("setting_time", setting_time);
                             intent.putExtra("setting_category", setting_category);
 
+                            Log.e("###", "넘어갑니다");
                             startActivity(intent);
                         }
                         else{
@@ -79,11 +82,11 @@ public class PictureGameSetting extends AppCompatActivity {
 
                     break;
                 case R.id.back_mode:
-                    idx_ = (idx_ + 1) % 4;
+                    idx_ = (idx_ + 1) % 3;
                     category.setText(mode[idx_]);
                     break;
                 case R.id.next_mode:
-                    if(idx_ == 0) idx_ = 3;
+                    if(idx_ == 0) idx_ = 2;
                     else idx_--;
                     category.setText(mode[idx_]);
                     break;

@@ -3,6 +3,7 @@ package com.example.ssuk;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -31,6 +32,7 @@ public class FourWordsGame extends AppCompatActivity {
     TimerTask timerTask;
     Timer timer;
     String category;
+    MediaPlayer endsound;
 
     int repeat;
     int time;
@@ -52,8 +54,11 @@ public class FourWordsGame extends AppCompatActivity {
         word4 = findViewById(R.id.word4);
         screen = findViewById(R.id.screen);
 
+        endsound = MediaPlayer.create(this,R.raw.ddang_sound);
+
         solution.setOnClickListener(onClickListener);
         screen.setOnTouchListener(onTouchListener);
+
 
         //값 받아오기
         Intent setting = getIntent();
@@ -102,7 +107,10 @@ public class FourWordsGame extends AppCompatActivity {
                     tv.post(new Runnable() {
                         @Override
                         public void run() {
-                            if(count == -1) tv.setText("끝");
+                            if(count == -1) {
+                                tv.setText("끝");
+                                endsound.start();
+                            }
                             else if (count < -1) {
                                 startTimerTask();
                                 return;

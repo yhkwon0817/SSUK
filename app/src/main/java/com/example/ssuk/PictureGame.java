@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.media.AudioAttributes;
+import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
@@ -30,9 +31,12 @@ public class PictureGame extends AppCompatActivity {
     ArrayList<Integer> problem = new ArrayList<>();
 
     String category;
+
     ImageView pic;
     TextView timeview;
     Button solution;
+
+    MediaPlayer endsound;
     LinearLayout screen;
     Timer timer;
     TimerTask timerTask;
@@ -61,16 +65,19 @@ public class PictureGame extends AppCompatActivity {
         screen = findViewById(R.id.screen);
         solution = findViewById(R.id.btn);
         pic = findViewById(R.id.image);
-        
+        endsound = MediaPlayer.create(this, R.raw.ddang_sound);
+
         //답 버튼은 아직
         //solution.setOnClickListener(onClickListener);
         screen.setOnTouchListener(onTouchListener);
         
         Intent setting = getIntent();
 
-        repeat = setting.getIntExtra("repeat_set", 0);
-        time = setting.getIntExtra("time_set", 0);
-        category = setting.getStringExtra("category");
+        repeat = setting.getIntExtra("setting_repeat", 0);
+        time = setting.getIntExtra("setting_time", 0);
+        category = setting.getStringExtra("setting_category");
+
+        /*Log.e("###", "반복 : " + repeat + " 카테고리 :  " + category + "시간 :  " + time);*/
 
         putProblem();
         startTimerTask();
@@ -138,8 +145,9 @@ public class PictureGame extends AppCompatActivity {
             problem.add(R.drawable.pgh14);
             problem.add(R.drawable.pgh15);
             problem.add(R.drawable.pgh16);
-            //problem.add(R.drawable.pgh17);
+            problem.add(R.drawable.pgh17);
         }
+
         Collections.shuffle(Arrays.asList(problem));
     }
 
@@ -152,7 +160,7 @@ public class PictureGame extends AppCompatActivity {
             // 종료 이미지 넣어야 함
             pic.setImageResource(R.drawable.endpg2);
             timeview.setText("");
-            solution.setVisibility(View.GONE);
+           /* solution.setVisibility(View.GONE);*/
             return;
         }
         else{
@@ -166,7 +174,10 @@ public class PictureGame extends AppCompatActivity {
                     timeview.post(new Runnable() {
                         @Override
                         public void run() {
-                            if(count == -1) timeview.setText("끝");
+                            if(count == -1) {
+                                timeview.setText("끝");
+                                endsound.start();
+                            }
                             else if(count < -1){
                                 startTimerTask();
                                 return;
@@ -187,8 +198,10 @@ public class PictureGame extends AppCompatActivity {
         public void onClick(View view) {
             switch(view.getId()){
                 case R.id.btn:
-
-                
+                    Intent intent = new Intent(PictureGame.this, PictureGameAnswer.class);
+                    intent.putExtra("Ans_category", category);
+                    intent.putExtra("Ans_list", problem);
+                    startActivity(intent);
             }
         }
     };*/
@@ -196,6 +209,7 @@ public class PictureGame extends AppCompatActivity {
     View.OnTouchListener onTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
+            /*Log.e("###", "" + index_);*/
             if(index_ < repeat + 1){
                 startTimerTask();
                 return false;
