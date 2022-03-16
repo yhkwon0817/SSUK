@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/black"
     tools:context=".LiarGameSetting">
 
     <TextView
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:text="라이어 게임"
         android:textSize="40sp"
+        android:textColor="#FFFFFF"
         android:fontFamily="@font/kotra_bold"
         android:layout_gravity="center"
         android:layout_marginTop="60dp"/>
@@ -209,37 +211,6 @@
             android:id="@+id/next_clock"
             android:background="@null"
             android:scaleType="centerInside"/>
-
-        <!--<Spinner
-            android:id="@+id/spinner_minute"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:autofillHints="카테고리" />
-
-        <TextView
-            android:layout_width="10dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="분"
-            android:fontFamily="@font/kotra_bold"
-            android:textSize="13dp"/>
-
-        <Spinner
-            android:id="@+id/spinner_second"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:autofillHints="카테고리"/>
-
-        <TextView
-            android:layout_width="10dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="초"
-            android:fontFamily="@font/kotra_bold"
-            android:textSize="13dp"/>-->
-
     </LinearLayout>
 
     <Button
