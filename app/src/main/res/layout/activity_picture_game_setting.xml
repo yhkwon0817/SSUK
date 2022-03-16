@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".PictureGameSetting">
@@ -14,7 +15,8 @@
         android:layout_gravity="center"
         android:fontFamily="@font/kotra_bold"
         android:text="인물 게임"
-        android:textSize="40sp" />
+        android:textSize="50sp"
+        android:textColor="#FFFFFF" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -22,14 +24,6 @@
         android:visibility="gone"
         android:id="@+id/layout_picture_game_hint"
         android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:fontFamily="@font/kotra_bold"
-            android:textColor="@color/white"
-            android:text = "화면을 누르면 묘한이가 랜덤으로\n(좌회전,우회전,급정거,방지턱,급출발)\n중 하나를 실행합니다\n\n\n\n\n\n" />
 
         <ImageView
             android:src="@drawable/close"
@@ -111,6 +105,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/kotra_bold"
             android:gravity="center"
+            android:textColorHint="@color/white"
             android:hint="시간"
             android:inputType="number"
             android:textSize="15dp" />
@@ -127,6 +122,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/kotra_bold"
             android:gravity="center"
+            android:textColorHint="@color/white"
             android:hint="문제 수"
             android:inputType="number"
             android:textSize="15dp" />
@@ -139,9 +135,8 @@
         android:layout_height="30dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:background="@color/white"
+        android:fontFamily="@font/kotra_bold"
         android:text="시작 !"
-        android:textColor="@color/black"
         android:textSize="15dp" />
 
 </LinearLayout>

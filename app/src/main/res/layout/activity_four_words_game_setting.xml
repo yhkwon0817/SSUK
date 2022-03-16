@@ -17,7 +17,7 @@
         android:layout_gravity="center"
         android:fontFamily="@font/kotra_bold"
         android:text="4글자 게임"
-        android:textSize="40sp" />
+        android:textSize="50sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -114,6 +114,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/kotra_bold"
             android:gravity="center"
+            android:textColorHint="@color/white"
             android:hint="시간"
             android:inputType="number"
             android:textSize="15dp" />
@@ -130,6 +131,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/kotra_bold"
             android:gravity="center"
+            android:textColorHint="@color/white"
             android:hint="문제 수"
             android:inputType="number"
             android:textSize="15dp" />

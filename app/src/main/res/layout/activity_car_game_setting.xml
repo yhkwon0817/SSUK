@@ -16,7 +16,7 @@
         android:textColor="@color/white"
         android:fontFamily="@font/kotra_bold"
         android:text="붕붕붕 게임"
-        android:textSize="40sp" />
+        android:textSize="50sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
