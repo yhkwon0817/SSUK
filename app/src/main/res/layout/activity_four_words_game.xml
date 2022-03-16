@@ -48,7 +48,7 @@
             android:layout_height="130dp"
             android:fontFamily="@font/kotra_bold"
             android:gravity="center"
-            android:text="__"
+            android:text="ㅡ"
             android:textColor="@color/white"
             android:textSize="80dp" />
 
@@ -58,7 +58,7 @@
             android:layout_height="130dp"
             android:fontFamily="@font/kotra_bold"
             android:gravity="center"
-            android:text="__"
+            android:text="ㅡ"
             android:textColor="@color/white"
             android:textSize="80dp" />
 

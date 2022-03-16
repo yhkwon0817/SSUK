@@ -3,6 +3,7 @@ package com.example.ssuk;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,6 +23,7 @@ public class PictureGameSetting extends AppCompatActivity {
     Button btn;
     ImageButton next, pre;
     TextView category;
+    MediaPlayer startsound;
 
     String[] mode = new ArrayList<String>().toArray(new String[0]);
     int idx_ = 0;
@@ -45,6 +47,7 @@ public class PictureGameSetting extends AppCompatActivity {
 
         mode = getResources().getStringArray(R.array.picturecategory);
         category.setText(mode[idx_]);
+        startsound = MediaPlayer.create(this, R.raw.round_start);
 
     }
 
@@ -65,6 +68,8 @@ public class PictureGameSetting extends AppCompatActivity {
                         Log.e("###", "값 받는중");
 
                         if(setting_repeat > 0 && setting_repeat < 20 && setting_time >= 2 && setting_time <= 15){
+
+                            startsound.start();
 
                             Intent intent = new Intent(PictureGameSetting.this, PictureGame.class);
 
