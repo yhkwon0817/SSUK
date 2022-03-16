@@ -254,7 +254,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
-        android:text="시작 !"
+        android:text="시작"
         android:fontFamily="@font/kotra_bold"
         android:textSize="15dp" />
 
