@@ -43,14 +43,8 @@ public class FourWordsGameSetting extends AppCompatActivity {
         btn_four_word_game_hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                layout_four_word_game_hint.setVisibility(View.VISIBLE);
-
-                btn_close_four_word_game_hint.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        layout_four_word_game_hint.setVisibility(View.GONE);
-                    }
-                });
+                Intent intent = new Intent(getApplicationContext(),FourWordsGameIntroduction.class);
+                startActivity(intent);
             }
         });
 

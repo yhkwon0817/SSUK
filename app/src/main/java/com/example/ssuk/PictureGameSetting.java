@@ -58,14 +58,8 @@ public class PictureGameSetting extends AppCompatActivity {
         btn_picture_game_hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                layout_picture_game_hint.setVisibility(View.VISIBLE);
-
-                btn_close_picture_game_hint.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        layout_picture_game_hint.setVisibility(View.GONE);
-                    }
-                });
+                Intent intent = new Intent(getApplicationContext(),PictureGameIntroduction.class);
+                startActivity(intent);
             }
         });
 
