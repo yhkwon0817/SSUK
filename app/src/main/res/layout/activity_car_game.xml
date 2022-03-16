@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:layout_gravity="center"
     tools:context=".CarGame">
 
     <ImageView
         android:id="@+id/jump_gif"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="650sp"
+        android:orientation="horizontal"
         android:src="@drawable/jump_remove"
          />
 
@@ -20,12 +22,17 @@
         android:layout_height="match_parent"
         android:src="@drawable/start_remove"
         />
+
     <ImageView
         android:id="@+id/stop_gif"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="337dp"
+        android:layout_height="500dp"
         android:src="@drawable/stop_remove"
-        />
+        app:layout_constraintBottom_toBottomOf="@+id/start_gif"
+        app:layout_constraintEnd_toEndOf="@+id/start_gif"
+        app:layout_constraintStart_toStartOf="@+id/start_gif"
+        app:layout_constraintTop_toTopOf="@+id/jump_gif" />
+
     <ImageView
         android:id="@+id/turn_left_gif"
         android:layout_width="match_parent"
