@@ -24,7 +24,7 @@ public class LiarGameSetting extends AppCompatActivity {
     public int people = 6;
     public int minute = 0;
     public int second = 0;
-    public int time_gap = 1;
+    public int time_gap = 30;
 
     public int category_number = 0;
     public int mode = 0;
