@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -23,8 +24,10 @@ import java.util.Random;
 public class CarGame extends AppCompatActivity {
 
     ImageView jump_gif, start_gif, stop_gif, turn_left_gif, turn_right_gif;
+    TextView jump_text, start_text, stop_text, turn_left_text, turn_right_text;
     MediaPlayer mediaPlayer;
-    ConstraintLayout screen;
+    LinearLayout screen;
+
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -52,18 +55,23 @@ public class CarGame extends AppCompatActivity {
 
     public void Image_Setting(){
         jump_gif = (ImageView) findViewById(R.id.jump_gif);
+        jump_text = (TextView) findViewById(R.id.jump_text);
         Glide.with(this).load(R.drawable.jump_remove).into(jump_gif);
 
         start_gif = (ImageView) findViewById(R.id.start_gif);
+        start_text = (TextView) findViewById(R.id.start_text);
         Glide.with(this).load(R.drawable.start_remove).into(start_gif);
 
         stop_gif = (ImageView) findViewById(R.id.stop_gif);
+        stop_text = (TextView) findViewById(R.id.stop_text);
         Glide.with(this).load(R.drawable.stop_remove).into(stop_gif);
 
         turn_left_gif = (ImageView) findViewById(R.id.turn_left_gif);
+        turn_left_text = (TextView) findViewById(R.id.turn_left_text);
         Glide.with(this).load(R.drawable.turn_left_remove).into(turn_left_gif);
 
         turn_right_gif = (ImageView) findViewById(R.id.turn_right_gif);
+        turn_right_text = (TextView) findViewById(R.id.turn_right_text);
         Glide.with(this).load(R.drawable.turn_right_remove).into(turn_right_gif);
     }
 
@@ -79,6 +87,11 @@ public class CarGame extends AppCompatActivity {
             turn_right_gif.setVisibility((View.GONE));
             mediaPlayer = MediaPlayer.create(this,R.raw.jump_sound);
             mediaPlayer.start();
+            jump_text.setVisibility((View.VISIBLE));
+            start_text.setVisibility((View.GONE));
+            stop_text.setVisibility((View.GONE));
+            turn_left_text.setVisibility((View.GONE));
+            turn_right_text.setVisibility((View.GONE));
         }
         if(i == 2)
         {
@@ -89,6 +102,11 @@ public class CarGame extends AppCompatActivity {
             turn_right_gif.setVisibility((View.GONE));
             mediaPlayer = MediaPlayer.create(this,R.raw.start_sound);
             mediaPlayer.start();
+            jump_text.setVisibility((View.GONE));
+            start_text.setVisibility((View.VISIBLE));
+            stop_text.setVisibility((View.GONE));
+            turn_left_text.setVisibility((View.GONE));
+            turn_right_text.setVisibility((View.GONE));
         }
         if(i == 3)
         {
@@ -99,6 +117,11 @@ public class CarGame extends AppCompatActivity {
             turn_right_gif.setVisibility((View.GONE));
             mediaPlayer = MediaPlayer.create(this,R.raw.stop_sound);
             mediaPlayer.start();
+            jump_text.setVisibility((View.GONE));
+            start_text.setVisibility((View.GONE));
+            stop_text.setVisibility((View.VISIBLE));
+            turn_left_text.setVisibility((View.GONE));
+            turn_right_text.setVisibility((View.GONE));
         }
         if(i == 4)
         {
@@ -109,6 +132,11 @@ public class CarGame extends AppCompatActivity {
             turn_right_gif.setVisibility((View.GONE));
             mediaPlayer = MediaPlayer.create(this,R.raw.turn_left_sound);
             mediaPlayer.start();
+            jump_text.setVisibility((View.GONE));
+            start_text.setVisibility((View.GONE));
+            stop_text.setVisibility((View.GONE));
+            turn_left_text.setVisibility((View.VISIBLE));
+            turn_right_text.setVisibility((View.GONE));
         }
         if(i == 5)
         {
@@ -119,16 +147,21 @@ public class CarGame extends AppCompatActivity {
             turn_right_gif.setVisibility((View.VISIBLE));
             mediaPlayer = MediaPlayer.create(this,R.raw.turn_right_sound);
             mediaPlayer.start();
+            jump_text.setVisibility((View.GONE));
+            start_text.setVisibility((View.GONE));
+            stop_text.setVisibility((View.GONE));
+            turn_left_text.setVisibility((View.GONE));
+            turn_right_text.setVisibility((View.VISIBLE));
         }
     }
 
     public void Reset_Glide()
     {
-        Glide.with(this).load(R.drawable.ic_launcher_background).into(jump_gif);
-        Glide.with(this).load(R.drawable.ic_launcher_background).into(start_gif);
-        Glide.with(this).load(R.drawable.ic_launcher_background).into(stop_gif);
-        Glide.with(this).load(R.drawable.ic_launcher_background).into(turn_left_gif);
-        Glide.with(this).load(R.drawable.ic_launcher_background).into(turn_right_gif);
+        Glide.with(this).load(R.drawable.ic_launcher_foreground).into(jump_gif);
+        Glide.with(this).load(R.drawable.ic_launcher_foreground).into(start_gif);
+        Glide.with(this).load(R.drawable.ic_launcher_foreground).into(stop_gif);
+        Glide.with(this).load(R.drawable.ic_launcher_foreground).into(turn_left_gif);
+        Glide.with(this).load(R.drawable.ic_launcher_foreground).into(turn_right_gif);
     }
 }
 

@@ -25,14 +25,8 @@ public class CarGameSetting extends AppCompatActivity {
         btn_car_game_hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                layout_car_game_hint.setVisibility(View.VISIBLE);
-
-                btn_close_car_game_hint.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        layout_car_game_hint.setVisibility(View.GONE);
-                    }
-                });
+                Intent intent = new Intent(getApplicationContext(),CarGameIntroduction.class);
+                startActivity(intent);
             }
         });
 

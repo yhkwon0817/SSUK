@@ -1,57 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
     android:background="@color/white"
     tools:context=".CarGame">
 
-    <ImageView
-        android:id="@+id/jump_gif"
-        android:layout_width="match_parent"
-        android:layout_height="650sp"
-        android:orientation="horizontal"
-        android:src="@drawable/jump_remove"
-        tools:ignore="MissingConstraints" />
 
-    <ImageView
-        android:id="@+id/start_gif"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/start_remove" />
+        android:layout_height="600dp">
 
-    <ImageView
-        android:id="@+id/stop_gif"
-        android:layout_width="337dp"
-        android:layout_height="500dp"
-        android:src="@drawable/stop_remove"
-        app:layout_constraintBottom_toBottomOf="@+id/start_gif"
-        app:layout_constraintEnd_toEndOf="@+id/start_gif"
-        app:layout_constraintStart_toStartOf="@+id/start_gif"
-        app:layout_constraintTop_toTopOf="@+id/jump_gif" />
+        <ImageView
+            android:id="@+id/jump_gif"
+            android:layout_width="match_parent"
+            android:layout_height="600sp"
+            android:src="@drawable/jump_remove"/>
 
-    <ImageView
-        android:id="@+id/turn_left_gif"
+        <ImageView
+            android:id="@+id/start_gif"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/start_remove" />
+
+        <ImageView
+            android:id="@+id/stop_gif"
+            android:layout_width="337dp"
+            android:layout_height="550dp"
+            android:src="@drawable/stop_remove"
+            />
+
+        <ImageView
+            android:id="@+id/turn_left_gif"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/turn_left_remove" />
+
+        <ImageView
+            android:id="@+id/turn_right_gif"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/turn_right_remove" />
+    </FrameLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/turn_left_remove" />
-
-    <ImageView
-        android:id="@+id/turn_right_gif"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/turn_right_remove" />
-<!--
-    <Button
-        android:id="@+id/Next_button"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NEXT"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="648dp" />-->
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="horizontal">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/start_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="급출발"
+                android:textSize="40sp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/kotra_bold"
+                />
+            <TextView
+                android:id="@+id/stop_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="급정지"
+                android:textSize="40sp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/kotra_bold"
+                />
+            <TextView
+                android:id="@+id/jump_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="방지턱"
+                android:textSize="40sp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/kotra_bold"
+                />
+            <TextView
+                android:id="@+id/turn_left_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="좌회전"
+                android:textSize="40sp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/kotra_bold"
+                />
+            <TextView
+                android:id="@+id/turn_right_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="우회전"
+                android:textSize="40sp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/kotra_bold"
+                />
+
+        </FrameLayout>
+
+    </LinearLayout>
+</LinearLayout>
+
