@@ -32,7 +32,7 @@ public class FourWordsGame extends AppCompatActivity {
     TimerTask timerTask;
     Timer timer;
     String category;
-    MediaPlayer endsound;
+    MediaPlayer endsound, midsound;
 
     int repeat;
     int time;
@@ -55,6 +55,7 @@ public class FourWordsGame extends AppCompatActivity {
         screen = findViewById(R.id.screen);
 
         endsound = MediaPlayer.create(this,R.raw.ddang_sound);
+        midsound = MediaPlayer.create(this,R.raw.onetwothree_sound);
 
         solution.setOnClickListener(onClickListener);
         screen.setOnTouchListener(onTouchListener);
@@ -107,6 +108,9 @@ public class FourWordsGame extends AppCompatActivity {
                     tv.post(new Runnable() {
                         @Override
                         public void run() {
+                            if(count == 0){
+                                midsound.start();
+                            }
                             if(count == -1) {
                                 tv.setText("끝");
                                 endsound.start();

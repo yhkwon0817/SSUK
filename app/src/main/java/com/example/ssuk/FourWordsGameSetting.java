@@ -3,6 +3,7 @@ package com.example.ssuk;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -18,6 +19,7 @@ public class FourWordsGameSetting extends AppCompatActivity {
     Button btn;
     ImageButton next, pre;
     TextView category;
+    MediaPlayer startsound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,8 @@ public class FourWordsGameSetting extends AppCompatActivity {
         btn.setOnClickListener(onClickListener);
         next.setOnClickListener(onClickListener);
         pre.setOnClickListener(onClickListener);
+
+        startsound = MediaPlayer.create(this, R.raw.round_start);
 
         category.setText("일상용어");
 
@@ -56,6 +60,8 @@ public class FourWordsGameSetting extends AppCompatActivity {
                         //Log.e("###", Integer.toString(setting_repeat) + " " + Integer.toString(setting_time));
 
                         if(setting_repeat > 0 && setting_repeat < 20 && setting_time >= 2 && setting_time <= 15){
+
+                            startsound.start();
 
                             Intent intent = new Intent(FourWordsGameSetting.this, FourWordsGame.class);
 

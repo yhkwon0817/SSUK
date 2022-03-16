@@ -36,7 +36,7 @@ public class PictureGame extends AppCompatActivity {
     TextView timeview;
     Button solution;
 
-    MediaPlayer endsound;
+    MediaPlayer endsound, midsound;
     LinearLayout screen;
     Timer timer;
     TimerTask timerTask;
@@ -65,6 +65,8 @@ public class PictureGame extends AppCompatActivity {
         screen = findViewById(R.id.screen);
         solution = findViewById(R.id.btn);
         pic = findViewById(R.id.image);
+
+        midsound = MediaPlayer.create(this, R.raw.onetwothree_sound);
         endsound = MediaPlayer.create(this, R.raw.ddang_sound);
 
         //답 버튼은 아직
@@ -174,9 +176,10 @@ public class PictureGame extends AppCompatActivity {
                     timeview.post(new Runnable() {
                         @Override
                         public void run() {
+                            if(count == 0) midsound.start();
                             if(count == -1) {
-                                timeview.setText("끝");
                                 endsound.start();
+                                timeview.setText("끝");
                             }
                             else if(count < -1){
                                 startTimerTask();

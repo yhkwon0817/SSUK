@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="650sp"
         android:orientation="horizontal"
-        android:src="@drawable/jump_remove" />
+        android:src="@drawable/jump_remove"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/start_gif"
