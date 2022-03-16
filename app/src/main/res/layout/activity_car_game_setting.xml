@@ -24,11 +24,10 @@
         android:layout_gravity="center">
 
         <ImageView
-            android:id="@+id/normal_mode"
             android:layout_width="350dp"
             android:layout_height="400dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/basic_myohan" />
+            android:src="@drawable/car_sin" />
     </FrameLayout>
 
     <TextView
