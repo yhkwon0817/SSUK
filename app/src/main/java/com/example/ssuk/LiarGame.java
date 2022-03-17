@@ -136,7 +136,7 @@ public class LiarGame extends AppCompatActivity {
                         text_isLiar.setText(sp);
                     } else {
                         SpannableStringBuilder sp = new SpannableStringBuilder("범인 색출 시작!\n누가 바보인지\n맞춰 봅시다!");
-                        sp.setSpan(new ForegroundColorSpan(Color.RED), 13, 15, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        sp.setSpan(new ForegroundColorSpan(Color.BLUE), 13, 15, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                         text_isLiar.setText(sp);
                     }
                     //타이머
@@ -160,7 +160,7 @@ public class LiarGame extends AppCompatActivity {
                     btn_next.setText("확인 완료");
                 } else if (mode == 1 && i == randN_spy * 2 + 1) {
                     text_isLiar.setVisibility(View.VISIBLE);
-                    SpannableStringBuilder sp = new SpannableStringBuilder("당신은\n스파이입니다.");
+                    SpannableStringBuilder sp = new SpannableStringBuilder("당신은\n스파이입니다.\n"+answer);
                     sp.setSpan(new ForegroundColorSpan(Color.RED), 4, 7, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                     text_isLiar.setText(sp);
                     btn_next.setText("확인 완료");

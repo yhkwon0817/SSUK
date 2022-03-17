@@ -2,6 +2,7 @@ package com.example.ssuk;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -109,6 +110,7 @@ public class LiarGameLast extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LiarGameLast.this, LiarGameSetting.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -117,10 +119,12 @@ public class LiarGameLast extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LiarGameLast.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
         btn_push.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
 
@@ -444,6 +448,7 @@ public class LiarGameLast extends AppCompatActivity {
         timerTask = new TimerTask() {
             int count = 10;
 
+            @SuppressLint("SetTextI18n")
             @Override
             public void run() {
                 textClock.post(new Runnable() {
@@ -458,7 +463,6 @@ public class LiarGameLast extends AppCompatActivity {
                             layout_answers.setVisibility(View.GONE);
                         } else if (count < -1) {
                             stopTimerTask();
-                            return;
                         } else textClock.setText(Integer.toString(count));
                     }
                 });
@@ -475,5 +479,9 @@ public class LiarGameLast extends AppCompatActivity {
             timerTask.cancel();
             timerTask = null;
         }
+    }
+
+    @Override
+    public void onBackPressed(){
     }
 }

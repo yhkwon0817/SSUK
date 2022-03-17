@@ -199,6 +199,7 @@ public class LiarGameSetting extends AppCompatActivity {
         text_mode.setText(sp);
     }
 
+    @SuppressLint("SetTextI18n")
     public void setClockText() {
         if (minute < 10 && second < 10)
             text_clock.setText("0" + Integer.toString(minute) + "분 0" + Integer.toString(second) + "초");
