@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:orientation="vertical"
+    android:background="@color/black"
     android:id="@+id/screen"
     tools:context=".StartActivity">
 
@@ -31,6 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
+        android:textColor="@color/white"
         android:layout_marginTop="100dp"
         android:fontFamily="@font/kotra_bold"
         android:text="신서유기 팬메이드 앱\n\n\n develop by 권용환 최인표 박준수"
