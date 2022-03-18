@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.annotation.SuppressLint;
+import android.media.Image;
 import android.media.MediaPlayer;
 import android.opengl.Visibility;
 import android.os.Bundle;
@@ -24,7 +25,8 @@ import java.util.Random;
 public class CarGame extends AppCompatActivity {
 
     ImageView jump_gif, start_gif, stop_gif, turn_left_gif, turn_right_gif;
-    TextView jump_text, start_text, stop_text, turn_left_text, turn_right_text;
+    TextView jump_text, start_text, stop_text, turn_left_text, turn_right_text,jumpway;
+    ImageView upway, downway, leftway,rightway;
     MediaPlayer mediaPlayer;
     LinearLayout screen;
 
@@ -56,22 +58,27 @@ public class CarGame extends AppCompatActivity {
     public void Image_Setting(){
         jump_gif = (ImageView) findViewById(R.id.jump_gif);
         jump_text = (TextView) findViewById(R.id.jump_text);
+        jumpway = (TextView) findViewById(R.id.jumpway);
         Glide.with(this).load(R.drawable.jump_remove).into(jump_gif);
 
         start_gif = (ImageView) findViewById(R.id.start_gif);
         start_text = (TextView) findViewById(R.id.start_text);
+        upway = (ImageView) findViewById(R.id.upway);
         Glide.with(this).load(R.drawable.start_remove).into(start_gif);
 
         stop_gif = (ImageView) findViewById(R.id.stop_gif);
         stop_text = (TextView) findViewById(R.id.stop_text);
+        downway = (ImageView) findViewById(R.id.downway);
         Glide.with(this).load(R.drawable.stop_remove).into(stop_gif);
 
         turn_left_gif = (ImageView) findViewById(R.id.turn_left_gif);
         turn_left_text = (TextView) findViewById(R.id.turn_left_text);
+        leftway =(ImageView) findViewById(R.id.leftway);
         Glide.with(this).load(R.drawable.turn_left_remove).into(turn_left_gif);
 
         turn_right_gif = (ImageView) findViewById(R.id.turn_right_gif);
         turn_right_text = (TextView) findViewById(R.id.turn_right_text);
+        rightway = (ImageView) findViewById(R.id.rightway);
         Glide.with(this).load(R.drawable.turn_right_remove).into(turn_right_gif);
     }
 
@@ -92,6 +99,11 @@ public class CarGame extends AppCompatActivity {
             stop_text.setVisibility((View.GONE));
             turn_left_text.setVisibility((View.GONE));
             turn_right_text.setVisibility((View.GONE));
+            jumpway.setVisibility((View.VISIBLE));
+            upway.setVisibility((View.GONE));
+            downway.setVisibility((View.GONE));
+            rightway.setVisibility((View.GONE));
+            leftway.setVisibility((View.GONE));
         }
         if(i == 2)
         {
@@ -107,6 +119,11 @@ public class CarGame extends AppCompatActivity {
             stop_text.setVisibility((View.GONE));
             turn_left_text.setVisibility((View.GONE));
             turn_right_text.setVisibility((View.GONE));
+            jumpway.setVisibility((View.GONE));
+            upway.setVisibility((View.VISIBLE));
+            downway.setVisibility((View.GONE));
+            rightway.setVisibility((View.GONE));
+            leftway.setVisibility((View.GONE));
         }
         if(i == 3)
         {
@@ -122,6 +139,11 @@ public class CarGame extends AppCompatActivity {
             stop_text.setVisibility((View.VISIBLE));
             turn_left_text.setVisibility((View.GONE));
             turn_right_text.setVisibility((View.GONE));
+            jumpway.setVisibility((View.GONE));
+            upway.setVisibility((View.GONE));
+            downway.setVisibility((View.VISIBLE));
+            rightway.setVisibility((View.GONE));
+            leftway.setVisibility((View.GONE));
         }
         if(i == 4)
         {
@@ -137,6 +159,11 @@ public class CarGame extends AppCompatActivity {
             stop_text.setVisibility((View.GONE));
             turn_left_text.setVisibility((View.VISIBLE));
             turn_right_text.setVisibility((View.GONE));
+            jumpway.setVisibility((View.GONE));
+            upway.setVisibility((View.GONE));
+            downway.setVisibility((View.GONE));
+            rightway.setVisibility((View.GONE));
+            leftway.setVisibility((View.VISIBLE));
         }
         if(i == 5)
         {
@@ -152,6 +179,11 @@ public class CarGame extends AppCompatActivity {
             stop_text.setVisibility((View.GONE));
             turn_left_text.setVisibility((View.GONE));
             turn_right_text.setVisibility((View.VISIBLE));
+            jumpway.setVisibility((View.GONE));
+            upway.setVisibility((View.GONE));
+            downway.setVisibility((View.GONE));
+            rightway.setVisibility((View.VISIBLE));
+            leftway.setVisibility((View.GONE));
         }
     }
 
