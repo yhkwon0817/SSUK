@@ -6,6 +6,7 @@
         <entry key="..\:/AndroidStudio/SSU/app/src/main/res/drawable/game_category_spinner.xml" value="0.2275" />
         <entry key="..\:/AndroidStudio/SSU/app/src/main/res/drawable/round_background.xml" value="0.2275" />
         <entry key="..\:/AndroidStudio/SSU/app/src/main/res/layout/activity_car_game.xml" value="0.20478837109876016" />
+        <entry key="..\:/AndroidStudio/SSU/app/src/main/res/layout/activity_car_game_introduction.xml" value="0.20478837109876016" />
         <entry key="..\:/AndroidStudio/SSU/app/src/main/res/layout/activity_car_game_setting.xml" value="0.24947916666666667" />
         <entry key="..\:/AndroidStudio/SSU/app/src/main/res/layout/activity_four_wards_game.xml" value="0.15670289855072464" />
         <entry key="..\:/AndroidStudio/SSU/app/src/main/res/layout/activity_four_words_game.xml" value="0.14447463768115942" />
@@ -16,6 +17,7 @@
         <entry key="..\:/AndroidStudio/SSU/app/src/main/res/layout/activity_picture_game_answer.xml" value="0.20478837109876016" />
         <entry key="..\:/AndroidStudio/SSU/app/src/main/res/layout/activity_picture_game_setting.xml" value="0.1956521739130435" />
         <entry key="..\:/AndroidStudio/SSU/app/src/main/res/layout/game_category_spinner.xml" value="0.24947916666666667" />
+        <entry key="..\:/AndroidStudio/SSU/app/src/main/res/layout/picture_game_answer_list.xml" value="0.20478837109876016" />
         <entry key="..\:/Users/User/AndroidStudioProjects/SSUK/app/src/main/res/layout/activity_car_game.xml" value="0.2753623188405797" />
         <entry key="..\:/Users/User/AndroidStudioProjects/SSUK/app/src/main/res/layout/activity_four_words_game.xml" value="0.18704710144927536" />
         <entry key="..\:/Users/User/AndroidStudioProjects/SSUK/app/src/main/res/layout/activity_liar_game.xml" value="0.18704710144927536" />

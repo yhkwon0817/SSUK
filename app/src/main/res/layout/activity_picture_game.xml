@@ -26,12 +26,12 @@
         android:layout_height="450dp"
         android:adjustViewBounds="true"/>
 
- <!--   <Button
+    <Button
         android:id="@+id/btn"
-        android:text="help"
+        android:text="Answer"
         android:layout_width="80dp"
         android:layout_height="40dp"
-        android:layout_marginTop="10dp" />-->
+        android:layout_marginTop="10dp" />
 
 
 </LinearLayout>

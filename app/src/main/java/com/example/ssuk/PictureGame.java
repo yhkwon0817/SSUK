@@ -25,10 +25,9 @@ import java.util.Collections;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
 public class PictureGame extends AppCompatActivity {
 
-    ArrayList<Integer> problem = new ArrayList<>();
+    ArrayList<PictureGameItem> problem = new ArrayList<>();
 
     String category;
 
@@ -50,17 +49,6 @@ public class PictureGame extends AppCompatActivity {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-       /* mSoundPool = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-            AudioAttributes mAudioAttributes = new AudioAttributes.Builder()
-                    .setUsage(AudioAttributes.USAGE_GAME)
-                    .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-                    .build();
-            new SoundPool.Builder()
-                    .setAudioAttributes(mAudioAttributes)
-                    .setMaxStreams(2).build();
-        }
-        SoundPool.Builder().*/
-
         timeview = findViewById(R.id.time);
         screen = findViewById(R.id.screen);
         solution = findViewById(R.id.btn);
@@ -70,7 +58,8 @@ public class PictureGame extends AppCompatActivity {
         endsound = MediaPlayer.create(this, R.raw.ddang_sound);
 
         //답 버튼은 아직
-        //solution.setOnClickListener(onClickListener);
+        solution.setVisibility(View.GONE);
+        solution.setOnClickListener(onClickListener);
         screen.setOnTouchListener(onTouchListener);
         
         Intent setting = getIntent();
@@ -88,69 +77,70 @@ public class PictureGame extends AppCompatActivity {
     private void putProblem() {
 
         if(category.equals("여자 배우")){
-            problem.add(R.drawable.pgw1);
-            problem.add(R.drawable.pgw2);
-            problem.add(R.drawable.pgw3);
-            problem.add(R.drawable.pgw4);
-            problem.add(R.drawable.pgw5);
-            problem.add(R.drawable.pgw6);
-            problem.add(R.drawable.pgw7);
-            problem.add(R.drawable.pgw8);
-            problem.add(R.drawable.pgw9);
-            problem.add(R.drawable.pgw10);
-            problem.add(R.drawable.pgw11);
-            problem.add(R.drawable.pgw12);
-            problem.add(R.drawable.pgw13);
-            problem.add(R.drawable.pgw14);
-            problem.add(R.drawable.pgw15);
-            problem.add(R.drawable.pgw16);
-            problem.add(R.drawable.pgw17);
-            problem.add(R.drawable.pgw18);
-            problem.add(R.drawable.pgw19);
-            problem.add(R.drawable.pgw20);
+            problem.add(new PictureGameItem(R.drawable.pgw1, "손담비"));
+            problem.add(new PictureGameItem(R.drawable.pgw2, "송혜교"));
+            problem.add(new PictureGameItem(R.drawable.pgw3, "정은채"));
+            problem.add(new PictureGameItem(R.drawable.pgw4, "김아중"));
+            problem.add(new PictureGameItem(R.drawable.pgw5, "김태리"));
+            problem.add(new PictureGameItem(R.drawable.pgw6, "김다미"));
+            problem.add(new PictureGameItem(R.drawable.pgw7, "박소담"));
+            problem.add(new PictureGameItem(R.drawable.pgw8, "강예원"));
+            problem.add(new PictureGameItem(R.drawable.pgw9, "조이현"));
+            problem.add(new PictureGameItem(R.drawable.pgw10, "손예진"));
+            problem.add(new PictureGameItem(R.drawable.pgw11, "진지희"));
+            problem.add(new PictureGameItem(R.drawable.pgw12, "장나라"));
+            problem.add(new PictureGameItem(R.drawable.pgw13, "박수진"));
+            problem.add(new PictureGameItem(R.drawable.pgw14, "전소민"));
+            problem.add(new PictureGameItem(R.drawable.pgw15, "김지원"));
+            problem.add(new PictureGameItem(R.drawable.pgw16, "박규영"));
+            problem.add(new PictureGameItem(R.drawable.pgw17, "나문휘"));
+            problem.add(new PictureGameItem(R.drawable.pgw18, "한소휘"));
+            problem.add(new PictureGameItem(R.drawable.pgw19, "신세경"));
+            problem.add(new PictureGameItem(R.drawable.pgw20, "신민아"));
+
         }
         else if(category.equals("남자 배우")){
-            problem.add(R.drawable.pgm1);
-            problem.add(R.drawable.pgm2);
-            problem.add(R.drawable.pgm3);
-            problem.add(R.drawable.pgm4);
-            problem.add(R.drawable.pgm5);
-            problem.add(R.drawable.pgm6);
-            problem.add(R.drawable.pgm7);
-            problem.add(R.drawable.pgm8);
-            problem.add(R.drawable.pgm9);
-            problem.add(R.drawable.pgm10);
-            problem.add(R.drawable.pgm11);
-            problem.add(R.drawable.pgm12);
-            problem.add(R.drawable.pgm13);
-            problem.add(R.drawable.pgm14);
-            problem.add(R.drawable.pgm15);
-            problem.add(R.drawable.pgm16);
-            problem.add(R.drawable.pgm17);
-            problem.add(R.drawable.pgm18);
-            problem.add(R.drawable.pgm19);
-            problem.add(R.drawable.pgm20);
+            problem.add(new PictureGameItem(R.drawable.pgm1, "김수현"));
+            problem.add(new PictureGameItem(R.drawable.pgm2, "이병헌"));
+            problem.add(new PictureGameItem(R.drawable.pgm3, "황정민"));
+            problem.add(new PictureGameItem(R.drawable.pgm4, "주지훈"));
+            problem.add(new PictureGameItem(R.drawable.pgm5, "유해진"));
+            problem.add(new PictureGameItem(R.drawable.pgm6, "강하늘"));
+            problem.add(new PictureGameItem(R.drawable.pgm7, "마동석"));
+            problem.add(new PictureGameItem(R.drawable.pgm8, "하정우"));
+            problem.add(new PictureGameItem(R.drawable.pgm9, "이경영"));
+            problem.add(new PictureGameItem(R.drawable.pgm10, "조진웅"));
+            problem.add(new PictureGameItem(R.drawable.pgm11, "이준기"));
+            problem.add(new PictureGameItem(R.drawable.pgm12, "손현주"));
+            problem.add(new PictureGameItem(R.drawable.pgm13, "남궁민"));
+            problem.add(new PictureGameItem(R.drawable.pgm14, "연정훈"));
+            problem.add(new PictureGameItem(R.drawable.pgm15, "고수"));
+            problem.add(new PictureGameItem(R.drawable.pgm16, "성지루"));
+            problem.add(new PictureGameItem(R.drawable.pgm17, "최우식"));
+            problem.add(new PictureGameItem(R.drawable.pgm18, "유아인"));
+            problem.add(new PictureGameItem(R.drawable.pgm19, "박보검"));
+            problem.add(new PictureGameItem(R.drawable.pgm20, "이선균"));
+
         }
         else{
-            problem.add(R.drawable.pgh1);
-            problem.add(R.drawable.pgh2);
-            problem.add(R.drawable.pgh3);
-            problem.add(R.drawable.pgh4);
-            problem.add(R.drawable.pgh5);
-            problem.add(R.drawable.pgh6);
-            problem.add(R.drawable.pgh7);
-            problem.add(R.drawable.pgh9);
-            problem.add(R.drawable.pgh10);
-            problem.add(R.drawable.pgh11);
-            problem.add(R.drawable.pgh12);
-            problem.add(R.drawable.pgh13);
-            problem.add(R.drawable.pgh14);
-            problem.add(R.drawable.pgh15);
-            problem.add(R.drawable.pgh16);
-            problem.add(R.drawable.pgh17);
+            problem.add(new PictureGameItem(R.drawable.pgh1, "이순신"));
+            problem.add(new PictureGameItem(R.drawable.pgh2, "김구"));
+            problem.add(new PictureGameItem(R.drawable.pgh3, "세종대왕"));
+            problem.add(new PictureGameItem(R.drawable.pgh4, "윤봉길"));
+            problem.add(new PictureGameItem(R.drawable.pgh5, "링컨"));
+            problem.add(new PictureGameItem(R.drawable.pgh6, "맥아더"));
+            problem.add(new PictureGameItem(R.drawable.pgh7, "마하트마 간디"));
+            problem.add(new PictureGameItem(R.drawable.pgh9, "다윈"));
+            problem.add(new PictureGameItem(R.drawable.pgh10, "징기츠 칸"));
+            problem.add(new PictureGameItem(R.drawable.pgh11, "나폴레옹"));
+            problem.add(new PictureGameItem(R.drawable.pgh12, "히틀러"));
+            problem.add(new PictureGameItem(R.drawable.pgh13, "베토벤"));
+            problem.add(new PictureGameItem(R.drawable.pgh14, "체 게바라"));
+            problem.add(new PictureGameItem(R.drawable.pgh15, "뉴턴"));
+            problem.add(new PictureGameItem(R.drawable.pgh16, "스티브 잡스"));
+            problem.add(new PictureGameItem(R.drawable.pgh17, "셰익스피어"));
         }
-
-        Collections.shuffle(Arrays.asList(problem));
+        Collections.shuffle(problem);
     }
 
     public void startTimerTask(){
@@ -162,7 +152,7 @@ public class PictureGame extends AppCompatActivity {
             // 종료 이미지 넣어야 함
             pic.setImageResource(R.drawable.endpg2);
             timeview.setText("");
-           /* solution.setVisibility(View.GONE);*/
+            solution.setVisibility(View.VISIBLE);
             return;
         }
         else{
@@ -196,18 +186,18 @@ public class PictureGame extends AppCompatActivity {
     }
 
     //답 어떻게 가져올지 생각
-/*    View.OnClickListener onClickListener = new View.OnClickListener() {
+    View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             switch(view.getId()){
                 case R.id.btn:
                     Intent intent = new Intent(PictureGame.this, PictureGameAnswer.class);
-                    intent.putExtra("Ans_category", category);
                     intent.putExtra("Ans_list", problem);
+                    intent.putExtra("Ans_repeat", repeat);
                     startActivity(intent);
             }
         }
-    };*/
+    };
 
     View.OnTouchListener onTouchListener = new View.OnTouchListener() {
         @Override
@@ -224,7 +214,7 @@ public class PictureGame extends AppCompatActivity {
     
 
     private void change_pb() {
-        pic.setImageResource(problem.get(index_));
+        pic.setImageResource(problem.get(index_).getId_());
         index_++;
     }
 
