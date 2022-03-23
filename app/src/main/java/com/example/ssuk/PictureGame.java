@@ -78,7 +78,7 @@ public class PictureGame extends AppCompatActivity {
 
         if(category.equals("여자 배우")){
             problem.add(new PictureGameItem(R.drawable.pgw1, "손담비"));
-            problem.add(new PictureGameItem(R.drawable.pgw2, "송혜교"));
+            problem.add(new PictureGameItem(R.drawable.pgw2, "한효주"));
             problem.add(new PictureGameItem(R.drawable.pgw3, "정은채"));
             problem.add(new PictureGameItem(R.drawable.pgw4, "김아중"));
             problem.add(new PictureGameItem(R.drawable.pgw5, "김태리"));
@@ -93,7 +93,7 @@ public class PictureGame extends AppCompatActivity {
             problem.add(new PictureGameItem(R.drawable.pgw14, "전소민"));
             problem.add(new PictureGameItem(R.drawable.pgw15, "김지원"));
             problem.add(new PictureGameItem(R.drawable.pgw16, "박규영"));
-            problem.add(new PictureGameItem(R.drawable.pgw17, "나문휘"));
+            problem.add(new PictureGameItem(R.drawable.pgw17, "나문희"));
             problem.add(new PictureGameItem(R.drawable.pgw18, "한소휘"));
             problem.add(new PictureGameItem(R.drawable.pgw19, "신세경"));
             problem.add(new PictureGameItem(R.drawable.pgw20, "신민아"));
@@ -122,7 +122,7 @@ public class PictureGame extends AppCompatActivity {
             problem.add(new PictureGameItem(R.drawable.pgm20, "이선균"));
 
         }
-        else{
+        else if(category.equals("역사 인물")){
             problem.add(new PictureGameItem(R.drawable.pgh1, "이순신"));
             problem.add(new PictureGameItem(R.drawable.pgh2, "김구"));
             problem.add(new PictureGameItem(R.drawable.pgh3, "세종대왕"));
@@ -139,6 +139,39 @@ public class PictureGame extends AppCompatActivity {
             problem.add(new PictureGameItem(R.drawable.pgh15, "뉴턴"));
             problem.add(new PictureGameItem(R.drawable.pgh16, "스티브 잡스"));
             problem.add(new PictureGameItem(R.drawable.pgh17, "셰익스피어"));
+        }
+        else{
+            problem.add(new PictureGameItem(R.drawable.pga1, "신태일 (디지몬 어드멘처)"));
+            problem.add(new PictureGameItem(R.drawable.pga2, "야가미 라이토 (데스노트)"));
+            problem.add(new PictureGameItem(R.drawable.pga3, "카마도 탄지로 (귀멸의 칼날)"));
+            problem.add(new PictureGameItem(R.drawable.pga4, "센 (센과 치히로의 행방불명)"));
+            problem.add(new PictureGameItem(R.drawable.pga5, "미츠하 (너의 이름은)"));
+            problem.add(new PictureGameItem(R.drawable.pga6, "스펀지밥 (스펀지밥)"));
+            problem.add(new PictureGameItem(R.drawable.pga7, "뽀로로 (뽀로로)"));
+            problem.add(new PictureGameItem(R.drawable.pga8, "루피 (뽀로로)"));
+            problem.add(new PictureGameItem(R.drawable.pga9, "파우더 (아케인)"));
+            problem.add(new PictureGameItem(R.drawable.pga10, "하울 (하울의 움직이는 성)"));
+            problem.add(new PictureGameItem(R.drawable.pga11, "루피 (원피스)"));
+            problem.add(new PictureGameItem(R.drawable.pga12, "조로 (원피스)"));
+            problem.add(new PictureGameItem(R.drawable.pga13, "나루토 (나루토)"));
+            problem.add(new PictureGameItem(R.drawable.pga14, "사스케 (나루토)"));
+            problem.add(new PictureGameItem(R.drawable.pga15, "쇼콜라 메이유르 (슈가슈가룬)"));
+            problem.add(new PictureGameItem(R.drawable.pga16, "히나타 소요 (하이큐)"));
+            problem.add(new PictureGameItem(R.drawable.pga17, "코난 (명탐정 코난)"));
+            problem.add(new PictureGameItem(R.drawable.pga18, "금강 (이누야샤)"));
+            problem.add(new PictureGameItem(R.drawable.pga19, "이누야샤 (이누야샤)"));
+            problem.add(new PictureGameItem(R.drawable.pga20, "유희 (유희왕)"));
+            problem.add(new PictureGameItem(R.drawable.pga21, "짱구 (짱구는 못말려)"));
+            problem.add(new PictureGameItem(R.drawable.pga22, "키키 (마녀배달부 키키)"));
+            problem.add(new PictureGameItem(R.drawable.pga23, "사이타마 (원펀맨)"));
+            problem.add(new PictureGameItem(R.drawable.pga24, "버즈 라이트이어 (토이스토리)"));
+            problem.add(new PictureGameItem(R.drawable.pga25, "슈렉 (슈렉)"));
+            problem.add(new PictureGameItem(R.drawable.pga26, "피오나 (슈렉)"));
+            problem.add(new PictureGameItem(R.drawable.pga27, "라푼젤 (라푼젤)"));
+            problem.add(new PictureGameItem(R.drawable.pga28, "이치고 (블리치)"));
+            problem.add(new PictureGameItem(R.drawable.pga29, "강호나시 (센과 치히로의 행방불명)"));
+            problem.add(new PictureGameItem(R.drawable.pga30, "지우 (포켓몬스터)"));
+            problem.add(new PictureGameItem(R.drawable.pga31, "토토로 (이웃집 토토로)"));
         }
         Collections.shuffle(problem);
     }
