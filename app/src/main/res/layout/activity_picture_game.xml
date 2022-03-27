@@ -15,9 +15,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
         android:hint="5"
-        android:textSize="30dp"
-        android:layout_marginBottom="20dp" />
+        android:textSize="30dp" />
 
 
     <androidx.cardview.widget.CardView
@@ -27,30 +27,30 @@
 
 
         <ImageView
-            android:clipToOutline="true"
             android:id="@+id/image"
-            android:scaleType="centerCrop"
             android:layout_width="300dp"
             android:layout_height="450dp"
-            android:adjustViewBounds="true"/>
+            android:adjustViewBounds="true"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop" />
 
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         app:cardCornerRadius="5dp">
 
         <Button
             android:id="@+id/btn"
-            android:text="답 보기"
             android:layout_width="80dp"
-            android:layout_height="40dp" />
+            android:layout_height="40dp"
+            android:clipToOutline="true"
+            android:text="답 보기" />
 
     </androidx.cardview.widget.CardView>
-
 
 
 </LinearLayout>

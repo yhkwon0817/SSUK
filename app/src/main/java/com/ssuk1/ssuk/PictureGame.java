@@ -221,6 +221,7 @@ public class PictureGame extends AppCompatActivity {
                     intent.putExtra("Ans_list", problem);
                     intent.putExtra("Ans_repeat", repeat);
                     startActivity(intent);
+                    finish();
             }
         }
     };
