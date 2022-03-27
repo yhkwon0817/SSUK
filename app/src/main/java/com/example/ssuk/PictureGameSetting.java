@@ -101,11 +101,11 @@ public class PictureGameSetting extends AppCompatActivity {
 
                     break;
                 case R.id.back_mode:
-                    idx_ = (idx_ + 1) % 3;
+                    idx_ = (idx_ + 1) % 4;
                     category.setText(mode[idx_]);
                     break;
                 case R.id.next_mode:
-                    if(idx_ == 0) idx_ = 2;
+                    if(idx_ == 0) idx_ = 3;
                     else idx_--;
                     category.setText(mode[idx_]);
                     break;
