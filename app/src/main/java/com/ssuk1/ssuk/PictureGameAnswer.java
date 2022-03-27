@@ -1,12 +1,9 @@
-package com.example.ssuk;
+package com.ssuk1.ssuk;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;

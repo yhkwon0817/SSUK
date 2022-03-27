@@ -1,6 +1,4 @@
-package com.example.ssuk;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.ssuk1.ssuk;
 
 import android.app.Activity;
 import android.net.Uri;

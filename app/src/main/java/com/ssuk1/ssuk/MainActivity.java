@@ -1,4 +1,4 @@
-package com.example.ssuk;
+package com.ssuk1.ssuk;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,10 +6,8 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 

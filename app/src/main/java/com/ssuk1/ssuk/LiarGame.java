@@ -1,4 +1,4 @@
-package com.example.ssuk;
+package com.ssuk1.ssuk;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ssuk">
+    package="com.ssuk1.ssuk">
 
     <uses-permission android:name="android.permission.VIBRATE" />
 
@@ -12,66 +12,66 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
-            android:name=".MainActivity"
+            android:name="com.ssuk1.ssuk.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PictureGameIntroduction"
+            android:name="com.ssuk1.ssuk.PictureGameIntroduction"
             android:exported="false"
             android:theme="@android:style/Theme.Dialog" />
         <activity
-            android:name=".LiarGameIntroduction"
+            android:name="com.ssuk1.ssuk.LiarGameIntroduction"
             android:exported="false"
             android:theme="@android:style/Theme.Dialog" />
         <activity
-            android:name=".FourWordsGameIntroduction"
+            android:name="com.ssuk1.ssuk.FourWordsGameIntroduction"
             android:exported="false"
             android:theme="@android:style/Theme.Dialog" />
         <activity
-            android:name=".CarGameIntroduction"
+            android:name="com.ssuk1.ssuk.CarGameIntroduction"
             android:exported="false"
             android:theme="@android:style/Theme.Dialog" />
         <activity
-            android:name=".PictureGameAnswer"
+            android:name="com.ssuk1.ssuk.PictureGameAnswer"
             android:exported="false" />
         <activity
-            android:name=".LiarGameLast"
+            android:name="com.ssuk1.ssuk.LiarGameLast"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".FourWordsGame"
+            android:name="com.ssuk1.ssuk.FourWordsGame"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".LiarGame"
+            android:name="com.ssuk1.ssuk.LiarGame"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".LiarGameSetting"
+            android:name="com.ssuk1.ssuk.LiarGameSetting"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CarGame"
+            android:name="com.ssuk1.ssuk.CarGame"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CarGameSetting"
+            android:name="com.ssuk1.ssuk.CarGameSetting"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PictureGame"
+            android:name="com.ssuk1.ssuk.PictureGame"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PictureGameSetting"
+            android:name="com.ssuk1.ssuk.PictureGameSetting"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".FourWordsGameSetting"
+            android:name="com.ssuk1.ssuk.FourWordsGameSetting"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".StartActivity"
+            android:name="com.ssuk1.ssuk.StartActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
